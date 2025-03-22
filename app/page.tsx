@@ -7,8 +7,6 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 
-
-
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -17,7 +15,7 @@ export default function Home() {
         <span className={title({ color: "green" })}>World&nbsp;</span>
         <span className={title()}>!</span>
         <div className={subtitle({ class: "mt-4" })}>
-          "a perfect mix of social, curious and crazy" -myself
+          {"a perfect mix of social, curious and crazy"} -myself
         </div>
       </div>
 

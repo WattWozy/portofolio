@@ -1,5 +1,6 @@
+import { Card, CardHeader } from "@heroui/card";
+
 import { title } from "@/components/primitives";
-import {Card, CardHeader, CardBody, CardFooter} from "@heroui/card";
 
 export default function PricingPage() {
   return (
@@ -13,6 +14,5 @@ export default function PricingPage() {
         </CardHeader>
       </Card>
     </div>
-    
   );
 }
