@@ -4,9 +4,8 @@ export default function DocsPage() {
   const cards = [
     {
       title: "Django Stock Market Analysis Application",
-      content:
-        "Python Django framework application for stock market analysis.",
-      link: "https://example.com",  
+      content: "Python Django framework application for stock market analysis.",
+      link: "https://example.com",
     },
     {
       title: "Spring boot queuing system",
@@ -16,8 +15,7 @@ export default function DocsPage() {
     },
     {
       title: "Nextjs AWS deployment on Amplify",
-      content:
-        "Personal site built on Nextjs deployed on AWS Amplify.",
+      content: "Personal site built on Nextjs deployed on AWS Amplify.",
       link: "https://example.com",
     },
     {

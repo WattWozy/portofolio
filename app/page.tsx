@@ -15,7 +15,7 @@ export default function Home() {
         <span className={title({ color: "green" })}>World&nbsp;</span>
         <span className={title()}>!</span>
         <div className={subtitle({ class: "mt-4" })}>
-          {"a perfect mix of social, curious and crazy"} -myself
+          {"a balanced mix of social, curious and crazy"} -myself
         </div>
       </div>
 
