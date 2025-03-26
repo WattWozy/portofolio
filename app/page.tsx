@@ -7,14 +7,6 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-
-function middleware(request: NextRequest) {
-  console.log("Incoming request:", request.url);
-  return NextResponse.next();
-}
-
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
