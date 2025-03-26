@@ -7,6 +7,14 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+function middleware(request: NextRequest) {
+  console.log("Incoming request:", request.url);
+  return NextResponse.next();
+}
+
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -15,7 +23,7 @@ export default function Home() {
         <span className={title({ color: "green" })}>World&nbsp;</span>
         <span className={title()}>!</span>
         <div className={subtitle({ class: "mt-4" })}>
-          {"a balanced mix of social, curious and crazy"} -myself
+          {'"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better" ~ Edsger Dijkstra'}
         </div>
       </div>
 
