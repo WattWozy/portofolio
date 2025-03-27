@@ -42,7 +42,7 @@ export default function AboutPage() {
             <Divider />
             <div className="mt-2 space-y-2">
               <p>{"⚽ Watching Soccer (¡Vamos Real, Hasta el Final!)"}</p>
-              <p>{"🏃 Running (Striving for a >5.00 min/km pace)"}</p>
+              <p>{"🏃 Running (Striving for a <5.00 min/km pace)"}</p>
               <p>{"🤓 Coding (4nd m3355ing 4r0und 1 gu355!)"}</p>
               <p>{"📖 Reading (far beyond docs and math proofs!)"}</p>
               <p>{"❤️ Hanging out with friends and family"}</p>

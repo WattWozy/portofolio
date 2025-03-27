@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Niklas Wozniak 👍",
-  description: "Make beautiful websites regardless of your design experience.",
+  description: "Personal portfolio, and home to my second brain.",
   navItems: [
     {
       label: "Home",
@@ -45,11 +45,7 @@ export const siteConfig = {
     {
       label: "About",
       href: "/about",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
+    }
   ],
   links: {
     github: "https://github.com/WattWozy/",
