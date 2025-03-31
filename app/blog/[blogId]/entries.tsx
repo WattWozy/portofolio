@@ -1,7 +1,7 @@
 import { firstEntry} from "./firstEntry";
-import { secondEntry } from "./secondEntry";
+import { secondEntry } from "./firstEntry";
 
-export const entries = {
+export const entries = [
     firstEntry,
     secondEntry,
-  };
+];
