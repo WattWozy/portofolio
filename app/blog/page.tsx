@@ -1,4 +1,5 @@
 import { Card, CardBody } from "@heroui/card";
+import Link from "next/link";
 
 export default function BlogPage() {
   const cards = [
@@ -30,28 +31,28 @@ export default function BlogPage() {
         "Building a Langchain4j chatbot agent for banking customer service.",
       content:
         "Project done internally together with other 15 co-workers. I describe the general architecutre of the service, the technologies  and the teamwork experience. (Website under construction 🤔)",
-      link: "https://example.com",
+      link: "/blog/secondEntry",
     },
     {
       title: "Working experience first year: A brief summary.",
       content:
         "In this blog post I cover the first impressions of starting an amazing journey at a huge fintech company. (Click still not available ⏰)",
-      link: "https://example.com",
+      link: "/blog/entries/firstEntry",
     },
   ];
 
   return (
-    <div>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 w-full h-full">
-        {cards.map((card, index) => (
-          <Card key={index} className="max-w-md w-full">
+    <div className="flex flex-col items-center justify-center gap-6 py-10">
+      {cards.map((card, index) => (
+        <Link key={index} href={card.link} className="w-full max-w-md">
+          <Card className="cursor-pointer hover:shadow-lg transition">
             <CardBody>
               <h2 className="text-xl font-bold">{card.title}</h2>
-              <p className="mt-2">{card.content}</p>
+              <p className="mt-2 text-gray-600">{card.content}</p>
             </CardBody>
           </Card>
-        ))}
-      </section>
+        </Link>
+      ))}
     </div>
   );
 }

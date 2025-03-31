@@ -1,26 +1,6 @@
 
 
-export const firstEntry = {
-    id: '1',
-    title: 'Working experience first year: A brief summary',
-    timestamp: '2024-05-27T10:30:00Z',
-    headers: [
-      'Application process',
-      'About the people', 
-      'Initial team: the blue ones', 
-      'About knowledge sharing culture',
-      'About the learning process, and the need for thirst'
-    ],
-    paragraphs: [
-      'It was the third and last year in my bachelor’s degree, and I knew I had to be punctual and eager on my job applications. I started applying systematically to all possible job openings, graduate programs, internships, and the like. It was only after a personal video, a technical java quiz, and three interviews that I eventually got the call from the HR employee I had been in contact with. Sweaty and nervous, taking the call at the first ring was worth the good news: I had a one-years-contract, full time paid, on a huge banking-software company. The following paragraphs aim to describe the impressions and feelings, the challenges and profits I have been experiencing for the last year and a half. ',
-      'I would like to start with the most essential element of any job: the colleagues. Few days were needed to taste the atmosphere of a friendly, sharp and fun bunch of peers. They all seemed to excel on how relaxed and confident they were. I guess, by contrast, my mouth didn’t dare to let many words jump out to the conversation. In the end, it’s the colleagues’ that have locked me into coming early every day to the office, and not leaving the building before the contract’s specification. They had not arrived from fancy universities, and the majority had not even got a master’s degree. In fact, one of the friend I consider sharpest, which had rapidly escalated from frontend tasks to deployment files and server configurations counted with just a popular full-stack bootcamp he had completed in some months. One great factor I appreciated was the small age difference of the colleagues I spent most time with. As I mentioned: I was overwhelmed at how brilliant everyone was, and felt much like an impostor in the daily tasks.',
-      'The first day, after some introductory sessions with one of the chiefs at the section, I got to know my mentor. The day after, with all transparency, they bumped me into the Daily Stand Up, a meeting all developer teams have at the start of the day in order to report how work is going, and to quickly sync with the team leader for prioritizing the right tasks. After some days, already with the permissions and access rights in place, I could start taking simple tasks, and discuss the code I was diving into: an enormous project with lots of repos, lots of branches, and a volume of classes I had never seen before. Step by step, the following weeks were all about learning acronyms and the convenient "way of working" of the team. Important stuff I remember from that first team was the need to discuss more often the code one is often visiting, being open about the critical approach one is taking to solve a problem and not being afraid to be the dumb one in the group. Ask, ask, ask, no matter how few answers you get. And write down as much as you can, if you ever are in the same situation.', 
-      'When it came to sharing knowledge, I highly appreciated the specific actions taken to spread knowledge. Knowledge in the sense of technical novelties, revising the structure of the code, or taking some time to explain at a high level how the architecture of the project looked. Knowledge could also be lifting up a problem one was facing that week to the seniors in the team, or the other way around: the architects in the team reminding us others how stuff had to be implemented. Another stable specific resource for sharing information about the project was the documentation and the internal network of documents that were revised in parallel to the development of certain stories. As you might imagine: it was a huge volume of data to assimilate, and still is. And this can, of course, either make you desperate and bored, or glad and joyful with an apparently endless fuel for your curiosity. Outside of the team, we had monthly meetings with all other teams across the teams working for other customers, and we even started a hobby-project group, where we shared features of new technology stacks and sat together and developed some simple proofs of concept (PoCs).', 
-      'After graduating from university and landing a job contract, my mentality was kind of overflowing with a sense of satisfaction and achievement, thinking life was already solved and the current situation provided for a comfortable survival in the cold Northern European capital. Until the periodic check-in with my mentor and closest boss arrived: I knew I was able to do more, faster and much better. There was a certain feeling of disappointment in the air when I left the first team that made me think about my future as a developer in the same company or in any other one: Where is "forward" now? Keeping learning and delivering faster, better solutions to my daily tasks. Keeping curiosity thirsty for more.'
-    ]
-  };
-
-  export const secondEntry = {
+export const secondEntry = {
     id: '2',
     title: 'Building a Langchain4j chatbot agent for banking customer service.',
     timestamp: '2024-06-27T10:30:00Z',
