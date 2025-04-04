@@ -24,7 +24,7 @@ export default function BlogPage() {
       title: "A brief introduction to DEVOPS.",
       content:
         "From commit and pushing to the right branches, through code review and deployment (Editing the story 😅)",
-      link: "https://example.com",
+      link: "/blog/thirdEntry",
     },
     {
       title:
