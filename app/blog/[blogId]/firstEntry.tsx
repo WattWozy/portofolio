@@ -56,3 +56,4 @@ export const thirdEntry = {
         'Delivering a software solution to a client often involves creating small features or fixing minor bugs. This common flow requires the development team to work in small iterative increments, which ensures that the changes are small, easy to revert, and fast to implement. This increases the security in the development process, and safeguards the final product’s security and reliability.'
         
     ]
+}
