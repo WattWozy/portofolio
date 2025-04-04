@@ -36,3 +36,23 @@ export const secondEntry = {
       'When it came to sharing knowledge, I highly appreciated the specific actions taken to spread knowledge. Knowledge in the sense of technical novelties, revising the structure of the code, or taking some time to explain at a high level how the architecture of the project looked. Knowledge could also be lifting up a problem one was facing that week to the seniors in the team, or the other way around: the architects in the team reminding us others how stuff had to be implemented. Another stable specific resource for sharing information about the project was the documentation and the internal network of documents that were revised in parallel to the development of certain stories. As you might imagine: it was a huge volume of data to assimilate, and still is. And this can, of course, either make you desperate and bored, or glad and joyful with an apparently endless fuel for your curiosity. Outside of the team, we had monthly meetings with all other teams across the teams working for other customers, and we even started a hobby-project group, where we shared features of new technology stacks and sat together and developed some simple proofs of concept (PoCs).', 
     ]
 }
+
+export const thirdEntry = {
+    id: 'thirdEntry', 
+    title: 'A brief introduction to DevOps', 
+    timestamp: '2024-08-27T10:30:00Z',
+    headers: [
+        'The process',
+        'Git is essential',
+        'The remote',
+        'The order',
+        'The result',
+    ], 
+    paragraphs: [
+        'Building a huge application, and involving several minds in each step requires powerful tools to coordinate and secure valuable outputs at each iteration. Similar to a factory producing cars, both the pipeline from importing the materials, binding the metal frames, installing the electronics, to finally testing and shipping, code nowadays requires a well defined set of practices and tools, which we commonly refer to as DevOps (Developer Operations).',
+        'An essential tool used in software production is Git: a file version control program, which allows the developer to track the changes done to a file or directory. It allows the developer to easily create a version of the code, on which to apply the changes in the code, and apply for a merge into the main version. More on what Git is and how it works can be found in the previous post in my blog. ',
+        'The remote, or codebase, is the place (often hosted in the cloud, meaning a remote server far away) where the project is hosted. Normally it includes tools for working with Git projects, and has features for protecting the versions (branches), specifying policies to update the main branch, or even creating pipelines that are triggered upon certain actions (more on that later). The most common ones are GitHub and BitBucket. However, both AWS and Azure have now started to implement their own repository-management solutions. Working with a stable remote allows a team with many brains to work coordinately, delivering great solutions at a stable pace.',
+        'Usually, the client makes an order on a feature, which is then passed to the team leader, who distributes the tickets among the developers. The developer assigned to the ticket then makes a new version from the latest version: pulls the latest codes from the “main” branch, or as we call it, “branches out from main” or “branch out from the latest” and starts analyzing the requirements to comply with the order and proceed with the solution. Once the code is modified, the developer commits and “pushes” the new version to the remote, making it available to the rest of the team. Often times, there are clear policies for protecting the latest version from a stream of unsupervised pushes, so, “merge requests”, “pull requests” and even user policies are placed to secure the main branch. Once the code is accepted, and merged into the main branch, it often triggers a series of actions. It can be running tests, ensuring code quality, linting files, or triggering a deployment into some test environment. The tests are diverse, and in many cases, when the product is sensitive, the client often has its own testing environment.', 
+        'Delivering a software solution to a client often involves creating small features or fixing minor bugs. This common flow requires the development team to work in small iterative increments, which ensures that the changes are small, easy to revert, and fast to implement. This increases the security in the development process, and safeguards the final product’s security and reliability.'
+        
+    ]
