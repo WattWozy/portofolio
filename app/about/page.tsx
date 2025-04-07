@@ -2,15 +2,17 @@
 
 import { Card } from "@heroui/card";
 import { Divider } from "@heroui/divider";
+
 import { title } from "@/components/primitives";
 
 export default function AboutPage() {
-  const cardStyles = "hover:bg-grey-50 transition-colors duration-300 ease-in-out transform hover:scale-[1.02] shadow-sm hover:shadow-md";
+  const cardStyles =
+    "hover:bg-grey-50 transition-colors duration-300 ease-in-out transform hover:scale-[1.02] shadow-sm hover:shadow-md";
 
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1 className={title()}>About Me</h1>
-      
+
       <div className="space-y-4 mt-6">
         <Card className={cardStyles}>
           <div className="p-4">
@@ -26,7 +28,9 @@ export default function AboutPage() {
 
         <Card className={cardStyles}>
           <div className="p-4">
-            <h2 className="text-xl font-bold mb-2 text-green-400">What do I work on?</h2>
+            <h2 className="text-xl font-bold mb-2 text-green-400">
+              What do I work on?
+            </h2>
             <Divider />
             <p className="mt-2">
               {

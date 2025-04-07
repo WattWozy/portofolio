@@ -44,7 +44,7 @@ export default function BlogPage() {
   return (
     <div className="flex flex-col items-center justify-center gap-6 py-10">
       {cards.map((card, index) => (
-        <Link key={index} href={card.link} className="w-full max-w-md">
+        <Link key={index} className="w-full max-w-md" href={card.link}>
           <Card className="cursor-pointer hover:shadow-lg transition">
             <CardBody>
               <h2 className="text-xl font-bold">{card.title}</h2>

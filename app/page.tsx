@@ -15,7 +15,9 @@ export default function Home() {
         <span className={title({ color: "green" })}>World&nbsp;</span>
         <span className={title()}>!</span>
         <div className={subtitle({ class: "mt-4" })}>
-          {'"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better" ~ Edsger Dijkstra'}
+          {
+            '"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better" ~ Edsger Dijkstra'
+          }
         </div>
       </div>
 
