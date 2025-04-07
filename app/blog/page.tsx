@@ -28,20 +28,20 @@ export default function BlogPage() {
     {
       title: "A brief introduction to DEVOPS.",
       content:
-        "From commit and pushing to the right branches, through code review and deployment (Editing the story 😅)",
+        "From commit and pushing to the right branches, through code review and deployment.",
       link: "/blog/thirdEntry",
     },
     {
       title:
         "Building a Langchain4j chatbot agent for banking customer service.",
       content:
-        "Project done internally together with other 15 co-workers. I describe the general architecutre of the service, the technologies  and the teamwork experience. (Website under construction 🤔)",
+        "Project done internally together with other 15 co-workers. I describe the general architecutre of the service, the technologies  and the teamwork experience.",
       link: "/blog/secondEntry",
     },
     {
       title: "Working experience first year: A brief summary.",
       content:
-        "In this blog post I cover the first impressions of starting an amazing journey at a huge fintech company. (Click still not available ⏰)",
+        "In this blog post I cover the first impressions of starting an amazing journey at a huge fintech company.",
       link: "/blog/firstEntry",
     },
   ];
