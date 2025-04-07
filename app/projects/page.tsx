@@ -3,19 +3,27 @@ import { Card, CardBody } from "@heroui/card";
 export default function DocsPage() {
   const cards = [
     {
+      title: "LLM chatbot orchestration: models, scrapers and containers",
+      content:
+        "Scraping enormout websites, loading them into a vector database and using LLMs to chat with the data. (Soon to arrive)",
+      link: "https://example.com",
+    },
+    {
+      title: "AWS-hosted portfolio: amplify, s3, and lambda",
+      content:
+        "The process of building the site you are currently on. (Soon to arrive)",
+      link: "/",
+    },
+    {
       title: "Django Stock Market Analysis Application",
-      content: "Python Django framework application for stock market analysis.",
+      content:
+        "Python Django framework application for stock market analysis. (Soon to arrive)",
       link: "https://example.com",
     },
     {
       title: "Spring boot queuing system",
       content:
-        "Spring boot java backend handling a simple ticketing/queuing system. React on the frontend.",
-      link: "https://example.com",
-    },
-    {
-      title: "Nextjs AWS deployment on Amplify",
-      content: "Personal site built on Nextjs deployed on AWS Amplify.",
+        "Spring boot java backend handling a simple ticketing/queuing system. React on the frontend. (Soon to arrive)",
       link: "https://example.com",
     },
     {

@@ -38,6 +38,7 @@ export default function Home() {
             Visit counter: <Code color="primary">1243332</Code>
           </span>
         </Snippet>
+        <p>soon to be fully dynamic :)</p>
       </div>
     </section>
   );
