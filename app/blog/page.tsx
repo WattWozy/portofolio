@@ -4,6 +4,11 @@ import Link from "next/link";
 export default function BlogPage() {
   const cards = [
     {
+      title: "Building a second brain: a new purpose.",
+      content: "Having almost finisher with my basic web-portfolio, I bumped into this book. (I am reading it now 📖)",
+      link: "https://example.com",
+    },
+    {
       title: "GIT: the information manager from hell",
       content: "GIT, its history, and some basic concepts.(I'm on it 🚀)",
       link: "https://example.com",
