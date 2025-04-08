@@ -1,4 +1,5 @@
 import { Card, CardBody } from "@heroui/card";
+import { title } from "@/components/primitives";
 
 export default function DocsPage() {
   const cards = [
@@ -36,6 +37,9 @@ export default function DocsPage() {
 
   return (
     <div>
+      <h1 className={title({ color: "violet", size: "lg", fullWidth: true })}>
+                    Projects: </h1> 
+              <br /><br /><br />
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 w-full h-full">
         {cards.map((card, index) => (
           <Card key={index} className="max-w-md w-full">

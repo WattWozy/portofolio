@@ -1,4 +1,5 @@
 import { Card, CardBody } from "@heroui/card";
+import { title } from "@/components/primitives";
 import Link from "next/link";
 
 export default function BlogPage() {
@@ -47,17 +48,22 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center gap-6 py-10">
-      {cards.map((card, index) => (
-        <Link key={index} className="w-full max-w-md" href={card.link}>
-          <Card className="cursor-pointer hover:shadow-lg transition">
-            <CardBody>
-              <h2 className="text-xl font-bold">{card.title}</h2>
-              <p className="mt-2 text-gray-600">{card.content}</p>
-            </CardBody>
-          </Card>
-        </Link>
-      ))}
+    <div>
+      <h1 className={title({ color: "cyan", size: "lg", fullWidth: true })}>
+                          Blog: </h1> 
+      <br /><br /><br />
+      <div className="flex flex-col items-center justify-center gap-6 py-10">
+        {cards.map((card, index) => (
+          <Link key={index} className="w-full max-w-md" href={card.link}>
+            <Card className="cursor-pointer hover:shadow-lg transition">
+              <CardBody>
+                <h2 className="text-xl font-bold">{card.title}</h2>
+                <p className="mt-2 text-gray-600">{card.content}</p>
+              </CardBody>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
