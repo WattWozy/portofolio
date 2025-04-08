@@ -6,13 +6,14 @@ import { Divider } from "@heroui/divider";
 import { title } from "@/components/primitives";
 
 export default function AboutPage() {
-  
-
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1 className={title({ color: "green", size: "lg", fullWidth: true })}>
-            About: </h1> 
-      <br /><br /><br />
+        About:{" "}
+      </h1>
+      <br />
+      <br />
+      <br />
       <div className="space-y-4 mt-6">
         <Card className="py-4">
           <div className="p-4">
@@ -28,9 +29,7 @@ export default function AboutPage() {
 
         <Card className={"py-4"}>
           <div className="p-4">
-            <h2 className="text-xl font-bold mb-2">
-              What do I work on?
-            </h2>
+            <h2 className="text-xl font-bold mb-2">What do I work on?</h2>
             <Divider />
             <p className="mt-2">
               {

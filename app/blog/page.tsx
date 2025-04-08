@@ -1,12 +1,14 @@
 import { Card, CardBody } from "@heroui/card";
-import { title } from "@/components/primitives";
 import Link from "next/link";
+
+import { title } from "@/components/primitives";
 
 export default function BlogPage() {
   const cards = [
     {
       title: "Building a second brain: a new purpose.",
-      content: "Having almost finisher with my basic web-portfolio, I bumped into this book. (I am reading it now 📖)",
+      content:
+        "Having almost finisher with my basic web-portfolio, I bumped into this book. (I am reading it now 📖)",
       link: "https://example.com",
     },
     {
@@ -50,8 +52,11 @@ export default function BlogPage() {
   return (
     <div>
       <h1 className={title({ color: "cyan", size: "lg", fullWidth: true })}>
-                          Blog: </h1> 
-      <br /><br /><br />
+        Blog:{" "}
+      </h1>
+      <br />
+      <br />
+      <br />
       <div className="flex flex-col items-center justify-center gap-6 py-10">
         {cards.map((card, index) => (
           <Link key={index} className="w-full max-w-md" href={card.link}>

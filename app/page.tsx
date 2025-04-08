@@ -11,10 +11,17 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title( {size: "lg", fullWidth: false})}>Hello&nbsp;</span>
-        <span className={title({ color: "yellow", size: "lg", fullWidth: false })}>World&nbsp;</span>
-        <span className={title({ size: "lg", fullWidth: false})}>!</span>
-        <br /><br /> <br />
+        <span className={title({ size: "lg", fullWidth: false })}>
+          Hello&nbsp;
+        </span>
+        <span
+          className={title({ color: "yellow", size: "lg", fullWidth: false })}
+        >
+          World&nbsp;
+        </span>
+        <span className={title({ size: "lg", fullWidth: false })}>!</span>
+        <br />
+        <br /> <br />
         <div className={subtitle({ class: "mt-4" })}>
           {
             '"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better" ~ Edsger Dijkstra'
