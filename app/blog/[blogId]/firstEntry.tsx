@@ -57,20 +57,18 @@ export const thirdEntry = {
 
 export const fourthEntry = {
   id: "fourthEntry",
-  title: "Code Obfuscation: meaning, process and an example",
+  title: "Code Obfuscation: meaning, techniques and tools",
   timestamp: "2025-03-27T10:30:00Z",
   headers: [
     "Where it all started",
     "Scraping data",
     "Countermeasures",
-    "Dynamic element-ids",
-    "Headers and cookies",
+    "Other measures"
   ],
   paragraphs: [
     "Some years ago, messing around with some python scrapers, I realized at some point that acquiring interesting data was simple and straightforward. Nowadays, that same interesting data has become a clear valuable asset, and companies displaying it are well aware of protecting it. Say for example you are a big finance website, that has achieved to gather real time information of a significant amount of tickers (stocks). You pay for a bunch of API keys, and you makes sure you are compliant with the business you are running, and loyal to your providers… until you find script kiddies stealing and re-selling the same data you are displaying in your website. Something must be done.",
     "There are some ways of scraping data. The two ways I have been taught to do this is, either by searching for a specific id of the html element, or you somehow discover the endpoint that populates the front-end with nice, clear and structured data.",
-    "To fight back, companies have started protecting both: the ids for the html elements containing the information now can change upon each request, and the endpoints are now secured with session cookies, http headers, and so on.",
-    "SOON TO ARRIVE",
-    "SOON TO ARRIVE",
+    "To fight back, companies have started protecting both: the ids for the html elements containing the information now can change upon each request, and the endpoints are now secured with session cookies, http headers, and so on. They basically create their own dynamic naming convention to assign id- and class-names to the different html elements, making use of js scripts to rotate and update the names at a frequent rate. For this, you don’t really need to be a genius: there are several open-source tools that allow you to do this, depending on the language you are trying to obfuscate. A quick google search can present you with some powerful open source obfuscators.",
+    "Of course, obfuscating the code sent to you browser can be a first step to secure your product, but HTTP request headers, ip address filtering, robot.txt files and other measures are often used against data stealing. If you ever encounter this kind of wall, be proud: it’s a clear sign of valuable data you are encountering.",
   ],
 };

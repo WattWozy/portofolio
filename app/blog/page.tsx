@@ -23,9 +23,9 @@ export default function BlogPage() {
       link: "/blog/fifthEntry",
     },
     {
-      title: "Code obfuscation: meaning, process and an example.",
+      title: "Code Obfuscation: meaning, techniques and tools",
       content:
-        "Obfuscation's goals and mechanisms. Implementation of a POC with some common tools (Processing the blog post...🙏)",
+        "Obfuscation's goals and mechanisms. A brief introduction.",
       link: "/blog/fourthEntry",
     },
     {
