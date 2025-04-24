@@ -5,6 +5,12 @@ import { title } from "@/components/primitives";
 export default function DocsPage() {
   const cards = [
     {
+      title: "Building an iOS app from scratch",
+      content:
+        "Simple, lovable and complete iOS app, aiming to help the user to track their private economy. (Soon to arrive)",
+      link: "https://example.com",
+    },
+    {
       title: "LLM chatbot orchestration: models, scrapers and containers",
       content:
         "Scraping enormout websites, loading them into a vector database and using LLMs to chat with the data. (Soon to arrive)",
