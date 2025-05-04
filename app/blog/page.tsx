@@ -24,8 +24,7 @@ export default function BlogPage() {
     },
     {
       title: "Code Obfuscation: meaning, techniques and tools",
-      content:
-        "Obfuscation's goals and mechanisms. A brief introduction.",
+      content: "Obfuscation's goals and mechanisms. A brief introduction.",
       link: "/blog",
     },
     {

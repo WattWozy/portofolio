@@ -63,7 +63,7 @@ export const fourthEntry = {
     "Where it all started",
     "Scraping data",
     "Countermeasures",
-    "Other measures"
+    "Other measures",
   ],
   paragraphs: [
     "Some years ago, messing around with some python scrapers, I realized at some point that acquiring interesting data was simple and straightforward. Nowadays, that same interesting data has become a clear valuable asset, and companies displaying it are well aware of protecting it. Say for example you are a big finance website, that has achieved to gather real time information of a significant amount of tickers (stocks). You pay for a bunch of API keys, and you makes sure you are compliant with the business you are running, and loyal to your providers… until you find script kiddies stealing and re-selling the same data you are displaying in your website. Something must be done.",
