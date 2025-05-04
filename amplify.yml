@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - npm install @supabase/supabase-js
     build:
       commands:
         - npm run build
