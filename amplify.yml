@@ -1,0 +1,25 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+  customHeaders:
+    - pattern: '**/*'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public, max-age=0, must-revalidate'
+  environment:
+    variables:
+      NEXT_PUBLIC_SUPABASE_URL: 'https://eihlfwiymupzvcjizhlo.supabase.co'
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpaGxmd2l5bXVwenZjaml6aGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzNTYwMTQsImV4cCI6MjA2MTkzMjAxNH0.BAnoboNpURCypRbVCzAKKuQ0wmjendCt-ZxNM1kJTVM' 
