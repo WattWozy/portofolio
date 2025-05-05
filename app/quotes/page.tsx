@@ -15,6 +15,15 @@ export default function PricingPage() {
       <Card className="py-4">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <p className="text-small uppercase font-bold">
+            {"Hard work pays off, but more often passionate work opens doors that seem so out-of-reach."}
+          </p>
+          <small className="text-default-500">A.Hirvonen</small>
+        </CardHeader>
+      </Card>
+      <br />
+      <Card className="py-4">
+        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+          <p className="text-small uppercase font-bold">
             {"Ingen minns en fegis"}
           </p>
           <small className="text-default-500">F.Riggers</small>

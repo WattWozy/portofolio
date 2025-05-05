@@ -127,13 +127,14 @@ export const Navbar = () => {
 
         <NavbarMenu>
           {searchInput}
-          <div className="mx-4 mt-2 flex flex-col gap-2">
+          <div className="mx-4 mt-2 flex flex-col">
             {siteConfig.navMenuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
-                <NextLink passHref href={item.href}>
-                  <Link color="foreground" size="lg">
-                    {item.label}
-                  </Link>
+                <NextLink 
+                  href={item.href}
+                  className="w-full py-4 px-2 text-lg hover:bg-default-100 active:bg-default-200 transition-colors rounded-lg"
+                >
+                  {item.label}
                 </NextLink>
               </NavbarMenuItem>
             ))}
