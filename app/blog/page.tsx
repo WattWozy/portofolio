@@ -8,18 +8,18 @@ export default function BlogPage() {
     {
       title: "Building a second brain: a new purpose.",
       content:
-        "Having almost finisher with my basic web-portfolio, I bumped into this book. (I am reading it now 📖)",
+        "Having almost finished my basic web-portfolio, I bumped into this book. (I am reading it now 📖)",
       link: "/blog",
     },
     {
       title: "GIT: the information manager from hell",
-      content: "GIT, its history, and some basic concepts.(I'm on it 🚀)",
+      content: "GIT, its history, and some basic concepts. (I'm on it 🚀)",
       link: "/blog",
     },
     {
       title:
-        "Teaching a computer to learn: A summary of Nielsen's book about Machine Leaning and Deep Neural Networks.",
-      content: "Summary of this great read.(Soon to arrive 📅)",
+        "Teaching a computer to learn: A summary of Nielsen's book about Machine Learning and Deep Neural Networks.",
+      content: "Summary of this great read. (Soon to arrive 📅)",
       link: "/blog",
     },
     {
@@ -37,13 +37,13 @@ export default function BlogPage() {
       title:
         "Building a Langchain4j chatbot agent for banking customer service.",
       content:
-        "Project done internally together with other 15 co-workers. I describe the general architecutre of the service, the technologies  and the teamwork experience.",
+        "Project done internally together with 15 other co-workers. I describe the general architecture of the service, the technologies, and the teamwork experience.",
       link: "/blog",
     },
     {
       title: "Working experience first year: A brief summary.",
       content:
-        "In this blog post I cover the first impressions of starting an amazing journey at a huge fintech company.",
+        "In this blog post, I cover the first impressions of starting an amazing journey at a huge fintech company.",
       link: "/blog",
     },
   ];

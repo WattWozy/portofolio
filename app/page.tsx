@@ -53,11 +53,37 @@ export default function Home() {
   // Function to mask IP address
   const maskIP = (ip: string | null | undefined) => {
     if (!ip) return "-";
-    const parts = ip.split(".");
-
-    if (parts.length !== 4) return ip;
-
-    return `${parts[0]}.${parts[1]}.***.***`;
+    
+    // Handle IPv4 addresses
+    if (ip.includes(".")) {
+      const parts = ip.split(".");
+      if (parts.length !== 4) return ip;
+      return `${parts[0]}.${parts[1]}.***.***`;
+    }
+    
+    // Handle IPv6 addresses
+    if (ip.includes(":")) {
+      // Split into parts, handling both compressed and uncompressed formats
+      const parts = ip.split(":");
+      
+      // If we have a compressed format (::), we need to handle it differently
+      if (ip.includes("::")) {
+        const beforeCompression = ip.split("::")[0].split(":").filter(Boolean);
+        const afterCompression = ip.split("::")[1]?.split(":").filter(Boolean) || [];
+        
+        // Get the first two non-empty parts
+        const firstTwo = [...beforeCompression, ...afterCompression].slice(0, 2);
+        if (firstTwo.length < 2) return ip;
+        
+        return `${firstTwo[0]}:${firstTwo[1]}:****`;
+      }
+      
+      // For uncompressed format
+      if (parts.length < 2) return ip;
+      return `${parts[0]}:${parts[1]}:****`;
+    }
+    
+    return ip;
   };
 
   // Function to format date
@@ -109,14 +135,20 @@ export default function Home() {
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="py-2 px-4 text-left font-semibold">IP Address</th>
+                <th className="py-2 px-4 text-left font-semibold">
+                  IP<span className="text-green-600">(v6)</span> Address
+                </th>
                 <th className="py-2 px-4 text-left font-semibold">Visit Date</th>
               </tr>
             </thead>
             <tbody>
               {recentVisits.map((visit) => (
                 <tr key={visit.id} className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="py-2 px-4 font-mono">{maskIP(visit.ip_address)}</td>
+                  <td className="py-2 px-4 font-mono">
+                    <span className={visit.ip_address?.includes(":") ? "text-green-600" : ""}>
+                      {maskIP(visit.ip_address)}
+                    </span>
+                  </td>
                   <td className="py-2 px-4">{formatDate(visit.timestamp)}</td>
                 </tr>
               ))}

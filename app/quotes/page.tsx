@@ -33,7 +33,7 @@ export default function PricingPage() {
       <Card className="py-4">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <p className="text-small uppercase font-bold">
-            {"You snooze: you loose"}
+            {"You snooze: you lose"}
           </p>
           <small className="text-default-500">T.Strömberg</small>
         </CardHeader>
@@ -42,7 +42,7 @@ export default function PricingPage() {
       <Card className="py-4">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <p className="text-small uppercase font-bold">
-            {"Risk it for the buiscuit"}
+            {"Risk it for the biscuit"}
           </p>
           <small className="text-default-500">E.Zetterberg</small>
         </CardHeader>

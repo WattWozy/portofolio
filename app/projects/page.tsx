@@ -7,13 +7,13 @@ export default function DocsPage() {
     {
       title: "Building an iOS app from scratch",
       content:
-        "Simple, lovable and complete iOS app, aiming to help the user to track their private economy. (Soon to arrive)",
+        "Simple, lovable, and complete iOS app, aiming to help users track their private economy. (Soon to arrive)",
       link: "https://example.com",
     },
     {
       title: "LLM chatbot orchestration: models, scrapers and containers",
       content:
-        "Scraping enormout websites, loading them into a vector database and using LLMs to chat with the data. (Soon to arrive)",
+        "Scraping enormous websites, loading them into a vector database, and using LLMs to chat with the data. (Soon to arrive)",
       link: "https://example.com",
     },
     {
@@ -31,13 +31,13 @@ export default function DocsPage() {
     {
       title: "Spring boot queuing system",
       content:
-        "Spring boot java backend handling a simple ticketing/queuing system. React on the frontend. (Soon to arrive)",
+        "Spring Boot Java backend handling a simple ticketing/queuing system. React on the frontend. (Soon to arrive)",
       link: "https://example.com",
     },
     {
       title: "Nextjs OCR project from scratch",
       content:
-        "Project built in React, Nextjs, Python processing engine and an Appwrite backend.",
+        "Project built in React, Next.js, Python processing engine, and an Appwrite backend.",
       link: "https://example.com",
     },
   ];
