@@ -25,6 +25,7 @@ import { SponsorModal } from "@/components/SponsorModal";
 export const Navbar = () => {
   const [isSponsorModalOpen, setIsSponsorModalOpen] = useState(false);
   const [messageCount, setMessageCount] = useState<number | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   useEffect(() => {
     const fetchMessageCount = async () => {
@@ -65,7 +66,12 @@ export const Navbar = () => {
 
   return (
     <>
-      <HeroUINavbar maxWidth="xl" position="sticky">
+      <HeroUINavbar 
+        maxWidth="xl" 
+        position="sticky"
+        isMenuOpen={isMenuOpen}
+        onMenuOpenChange={setIsMenuOpen}
+      >
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">
             <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -127,12 +133,13 @@ export const Navbar = () => {
 
         <NavbarMenu>
           {searchInput}
-          <div className="mx-4 mt-2 flex flex-col">
+          <div className="mx-4 mt-2 flex flex-col gap-4">
             {siteConfig.navMenuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <NextLink 
                   href={item.href}
                   className="w-full py-4 px-2 text-lg hover:bg-default-100 active:bg-default-200 transition-colors rounded-lg"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </NextLink>
