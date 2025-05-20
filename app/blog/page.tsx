@@ -8,7 +8,7 @@ export default function BlogPage() {
     {
       title: "Building a second brain: a new purpose.",
       content:
-        "Having almost finished my basic web-portfolio, I bumped into this book. (I am reading it now 📖)",
+        "Having almost finished my web-portfolio, I bumped into this book. (I am reading it now 📖)",
       link: "/blog",
     },
     {
@@ -38,7 +38,7 @@ export default function BlogPage() {
         "Building a Langchain4j chatbot agent for banking customer service.",
       content:
         "Project done internally together with 15 other co-workers. I describe the general architecture of the service, the technologies, and the teamwork experience.",
-      link: "/blog",
+      link: "/blog/secondEntry",
     },
     {
       title: "Working experience first year: A brief summary.",

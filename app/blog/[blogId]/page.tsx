@@ -18,22 +18,24 @@ export default async function Page({
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-4xl mx-auto ">
       {/* Render title */}
       <h1 className={title({ color: "violet", size: "lg", fullWidth: true })}>
         {entry.title}
       </h1>
+      <br />
+      <br />
+      <br />
 
       {/* Render timestamp */}
-      <p className="text-sm text-gray-500 mt-2">
+      <p className="text-sm text-gray-500 mt-2 ">
         Published on: {new Date(entry.timestamp).toLocaleDateString()}
       </p>
-
       {/* Render headers and paragraphs */}
       {entry.headers.map((header, index) => (
         <div key={index} className="mt-6">
           <h2 className={subtitle()}>{header}</h2>
-          <p className="text-base text-gray-600">
+          <p className="text-base text-gray-600 text-justify whitespace-pre-line">
             {entry.paragraphs[index] || "Content not provided."}
           </p>
         </div>

@@ -23,16 +23,73 @@ export const secondEntry = {
   title: "Building a Langchain4j chatbot agent for banking customer service.",
   timestamp: "2024-06-27T10:30:00Z",
   headers: [
-    "Application process",
-    "Tech stack and general architecture",
-    "Teamwork: challenges and profits",
+    "Introduction",
+    "AI concepts, and tech in the project",
+    "TL;DR:",
   ],
   paragraphs: [
-    'Just after completing my work with the first team, summer was approaching, and the next project involved developing an internal chatbot: an AI-powered customer service platform for bank clients. Terms like "AI", "RAG", and "Vector database" frequently peppered our group chat. The initiative grew more intriguing with each passing day. True to their Swedish work culture, the team members had already meticulously planned their summer schedule, scheduling numerous meetings to discuss the tech stack and tools weeks before the project\'s kickoff.',
-    "The tech stack was partly aligned with the more classical tools used across the different teams in the banking division, and included a backend built on Java Spring Boot, an integration layer (which I will explain in the following paragraph) and a react React webapp to fuel our frontend service. When it came to the more AI related engine, hosted in the integration layer, we used Langchain4j: a spinoff of the Python library “LangChain”. This library was included as a Spring dependency to our Spring boot repo, so that the installation and information management could be seamless. When it came to connecting the library to an LLM engine we filled our credit cards (two of us in the team) and bought a generous amount of tokens linked to our OPENAI API key. This API key not only allowed us to receive some good answers to natural language prompts, but also enabled us to translate strings (chunks of text) into meaning-vectors, which were then stored into a vector database the LLM was able to query. This was the RAG part, as you can guess. All these layers were hosted in Azure, where we deployed our three services: the backend, the integration layer, and the frontend. Azure served both as a great codebase as well as a versatile deployment tool. Pipelines and environments were quickly built with the help of some of the senior workers at the banking division and our Git policies were well defined, as well as our stable way of working. As you might imagine, the selection of tools and technologies did not happen in a couple of minutes: we started off trying the original Python library, and testing some free inference models via huggingface. The decisions were taken as a group, and were backed by simple PoC failures and a “get it done” mentality.",
-    "Working with 15 other junior developers proved to be an incredibly enriching experience. We enjoyed full autonomy, reporting to our team leader only on Mondays and organizing ourselves based on availability and task preferences. I chose to focus on the integration layer, spending the early weeks conducting research and subsequently wrestling with our stubborn LLM engine. During the first two weeks, I worked alongside T. Strömberg, exploring creative approaches within the original Python framework. Our goal was to develop a stable agent capable of intelligently differentiating between calling its Tools, executing RAG queries, and responding based on its conversational training. The following week, J. Saeed joined the team with remarkable efficiency, decisively advocating for the Java library initially proposed. From my perspective, Java offers superior fail-traceability and type-class accountability. We were also more familiar with best practices for developing Java Spring Boot microservices, and ultimately, efficiency triumphed over our initial Tony Stark-esque experimental approach. It was fascinating to observe how a seemingly mechanical field like software engineering can be rife with human emotions—pride, impatience, frustration, and even jealousy. These sentiments were likely intensified by the collective decision to forgo summer vacations. Despite the challenges, I consider this project the most collaborative and transformative team experience of my career.",
-    "When it came to sharing knowledge, I highly appreciated the specific actions taken to spread knowledge. Knowledge in the sense of technical novelties, revising the structure of the code, or taking some time to explain at a high level how the architecture of the project looked. Knowledge could also be lifting up a problem one was facing that week to the seniors in the team, or the other way around: the architects in the team reminding us others how stuff had to be implemented. Another stable specific resource for sharing information about the project was the documentation and the internal network of documents that were revised in parallel to the development of certain stories. As you might imagine: it was a huge volume of data to assimilate, and still is. And this can, of course, either make you desperate and bored, or glad and joyful with an apparently endless fuel for your curiosity. Outside of the team, we had monthly meetings with all other teams across the teams working for other customers, and we even started a hobby-project group, where we shared features of new technology stacks and sat together and developed some simple proofs of concept (PoCs).",
-  ],
+    `This post is about an internal project carried out at TietoEvry, together with other 15 colleagues, 
+ during the summer of 2024. The goal of the project was to create a simple chatbot agent that could rely 
+ on a specified context (to prevent it from hallucinating), and on certain custom-made functions on our 
+ code that could for instance fetch, or post data to and endpoint. `,
+ `
+ The project was inspired by a talk given by Lizzy Raes at JFokus24, about a new Java library that would 
+ translate a common LLM/agentic Python library (Langchain) to Java (Langchain4j). This library's main focus
+ is to treat AI models in a more Object Oriented way, this is: to be able to instantiate an interface to 
+ communicate with an AI model in a more programmatical way, by sending and fetching data from and to the 
+ instantiated AI model.  
+
+ First: let us get acquainted with two of the most essential concepts needed to understand the project: 
+ LLM, and Agent. 
+
+ LLM stands for Large Language model. A model is a trained neural network that has been adjusted to interpret
+ and generate human language. So, LLMs are just AI-models that convert the specific words, sentences and/or
+ paragraphs (we will discuss this in a bit) into huge vectors. These vectors (huge ones) contain an array of 
+ values that "map" lexical meaning to numerical values (vectors). This means: "bad" will for example be a 
+ vector with negative values, while the word "good" might instead have positive values. This way, the mapping 
+ between lexical meaning, and vector representated meaning is coherent, and thus, operable and interpretable.
+
+ An agent on the other hand, relies not only on an LLM, but on some other special superpowers as well. The main
+ idea is: having an LLM able to map words and sentences to numerical values, we can then instruct the LLM to map
+ a specific range of meaning to trigger a function on our code. A function on our code that can be triggered, 
+ used, executed by an LLM is a Tool. Agents are, as you probably are guessing: an LLM with access to Tools. 
+
+ Great. Some technical steps that we encountered when working with LLMs and agents and text and functions..
+ As I mentioned above: one of the goals was to provide the model with a certain context in order to prevent 
+ hallucination (making up answers). We were pitched to use RAG for this: Retrieval Augmented Generation. This is:
+ passing some extra content more than the user's query as an input. This way, we can enrich the model we are 
+ using with specific and updated data it can use and rephrase to answer related questions. A context, when 
+ speaking LLM/AI-jargon, is the bunch of information (usually text represented as strings) that is provided 
+ to the model to rely use when answering the user query. 
+
+ There are several ways to load context to an LLM, and the libraries we were using (langchain/langchain4j) 
+ had definitely more than one way to load documents into the model. The way we thought most compelling was by
+ instantiating a vector database that could hold all our texts in form of vectors. This whole process is delicate, 
+ and required the attention of several parameters: like which LLM are you using in order to convert the text into
+ vectors, how long the "chunks" of text are going to be, and the choice of vector database as well. 
+
+ Another important factor to retrieve in order to enrich the LLM's answer, is the memory. When instantiating a 
+ model in LangChain, we encountered several different ways of instantiating a memory component and bind it to the 
+ LLM. We thought of saving the user's query, and the model's answer in a database, in order to save the conversation
+ as text, and therefore as context for the LLM to access as well. However, there are automated functions in the 
+ library that enable you to just ".loadDocs" into the LLM and forget the hassle of building, running, posting and
+ retrieving information from a custom vector store. 
+
+ These are some of the things I learned and worked with during the project. Another interesting aspect of this 
+ teamwork was to sit, think and design the architecture of the whole service. By that time, I was 21, and had
+ mainly mainly focused on syntax. I had never considered the importance nor the urgency of architecture: how 
+ important different frameworks are, the importace of a steay and clear filestructure and of course sekking 
+ best practices more than get-arounds. 
+
+For now, I will leave you with with this. Hope this post gave you some new words to chew on, and some insight on 
+the project I was working on. I hope to share a bit more about cloud services on another chapter. 
+Hope you enjoyed it!`,
+`In summer 2024, a team at TietoEvry built a Java-based chatbot agent using Langchain4j, inspired by Langchain 
+in Python. The goal was to create a reliable AI assistant that avoids hallucinations by using contextual information 
+and custom functions (tools). Key concepts included LLMs, agents, RAG (Retrieval Augmented Generation), vector 
+databases, and memory management. The project also highlighted the importance of proper system architecture over 
+just code syntax.`,
+    ],
 };
 
 export const thirdEntry = {
