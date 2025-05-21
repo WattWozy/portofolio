@@ -7,6 +7,7 @@ export const firstEntry = {
     "About the people",
     "Initial team: the blue ones",
     "About knowledge sharing culture",
+    "An introduction to architecture",
     "About the learning process, and the need for thirst",
   ],
   paragraphs: [
@@ -24,71 +25,68 @@ export const secondEntry = {
   timestamp: "2024-06-27T10:30:00Z",
   headers: [
     "Introduction",
+    "Where it all started",
+    "First concepts: LLMs and Agents",
+    "Context and hallucinations: RAG", 
+    "From text to vectors: Working with vector stores",
+    "Memory: Saving the Conversation", 
     "AI concepts, and tech in the project",
     "TL;DR:",
   ],
   paragraphs: [
-    `This post is about an internal project carried out at TietoEvry, together with other 15 colleagues, 
- during the summer of 2024. The goal of the project was to create a simple chatbot agent that could rely 
- on a specified context (to prevent it from hallucinating), and on certain custom-made functions on our 
- code that could for instance fetch, or post data to and endpoint. `,
- `
- The project was inspired by a talk given by Lizzy Raes at JFokus24, about a new Java library that would 
- translate a common LLM/agentic Python library (Langchain) to Java (Langchain4j). This library's main focus
- is to treat AI models in a more Object Oriented way, this is: to be able to instantiate an interface to 
- communicate with an AI model in a more programmatical way, by sending and fetching data from and to the 
- instantiated AI model.  
+    `This post is about an internal project carried out at TietoEvry, together with 15 other colleagues, during the summer of 2024. The goal was to create a simple chatbot agent — one that could rely on a specified context (to prevent it from hallucinating) and trigger certain custom-made functions in our code, such as fetching or posting data to an endpoint.
+    `,
+    `
+    The inspiration came from a talk by Lizzy Raes at JFokus24. She introduced a Java library called Langchain4j — basically a Java version of the more well-known LangChain (Python). The idea is to bring the same "agentic" behavior into a more object-oriented Java context.
+    That means being able to instantiate an interface and treat your AI model like a regular object: you send it data, it gives you a response — and under the hood, you can plug in tools, memory, and context. That’s what we wanted to explore.
+    `,
+     `
+    Before diving into building, we had to get familiar with two key terms: LLM and Agent.
+    
+    LLM stands for Large Language Model. It's a trained neural network that understands and generates human language. Underneath, it turns words, phrases, even paragraphs into vectors — big arrays of numbers that represent meaning. For example, the word “bad” might become a vector with mostly negative values, while “good” might have more positive ones. This allows the model to “understand” and operate on meaning.
+    
+    An agent, on the other hand, is an LLM with extra powers. It can access external tools — functions that you’ve defined in your code. You can think of it like this: the agent maps meaning from a user’s input to a trigger — and that trigger might call a function, send a request, or return custom output. Agents are basically LLMs with access to your toolbox. 
+    `,
+    `
+    One of the early challenges we faced was the classic: how do we stop the model from hallucinating?
+    
+    That’s where RAG — Retrieval Augmented Generation — comes in. The idea is simple: instead of just feeding the user query into the model, we also pass along extra information — context. This can be documentation, a previous conversation, or any other relevant data.
 
- First: let us get acquainted with two of the most essential concepts needed to understand the project: 
- LLM, and Agent. 
-
- LLM stands for Large Language model. A model is a trained neural network that has been adjusted to interpret
- and generate human language. So, LLMs are just AI-models that convert the specific words, sentences and/or
- paragraphs (we will discuss this in a bit) into huge vectors. These vectors (huge ones) contain an array of 
- values that "map" lexical meaning to numerical values (vectors). This means: "bad" will for example be a 
- vector with negative values, while the word "good" might instead have positive values. This way, the mapping 
- between lexical meaning, and vector representated meaning is coherent, and thus, operable and interpretable.
-
- An agent on the other hand, relies not only on an LLM, but on some other special superpowers as well. The main
- idea is: having an LLM able to map words and sentences to numerical values, we can then instruct the LLM to map
- a specific range of meaning to trigger a function on our code. A function on our code that can be triggered, 
- used, executed by an LLM is a Tool. Agents are, as you probably are guessing: an LLM with access to Tools. 
-
- Great. Some technical steps that we encountered when working with LLMs and agents and text and functions..
- As I mentioned above: one of the goals was to provide the model with a certain context in order to prevent 
- hallucination (making up answers). We were pitched to use RAG for this: Retrieval Augmented Generation. This is:
- passing some extra content more than the user's query as an input. This way, we can enrich the model we are 
- using with specific and updated data it can use and rephrase to answer related questions. A context, when 
- speaking LLM/AI-jargon, is the bunch of information (usually text represented as strings) that is provided 
- to the model to rely use when answering the user query. 
-
- There are several ways to load context to an LLM, and the libraries we were using (langchain/langchain4j) 
- had definitely more than one way to load documents into the model. The way we thought most compelling was by
- instantiating a vector database that could hold all our texts in form of vectors. This whole process is delicate, 
- and required the attention of several parameters: like which LLM are you using in order to convert the text into
- vectors, how long the "chunks" of text are going to be, and the choice of vector database as well. 
-
- Another important factor to retrieve in order to enrich the LLM's answer, is the memory. When instantiating a 
- model in LangChain, we encountered several different ways of instantiating a memory component and bind it to the 
- LLM. We thought of saving the user's query, and the model's answer in a database, in order to save the conversation
- as text, and therefore as context for the LLM to access as well. However, there are automated functions in the 
- library that enable you to just ".loadDocs" into the LLM and forget the hassle of building, running, posting and
- retrieving information from a custom vector store. 
-
- These are some of the things I learned and worked with during the project. Another interesting aspect of this 
- teamwork was to sit, think and design the architecture of the whole service. By that time, I was 21, and had
- mainly mainly focused on syntax. I had never considered the importance nor the urgency of architecture: how 
- important different frameworks are, the importace of a steay and clear filestructure and of course sekking 
- best practices more than get-arounds. 
-
-For now, I will leave you with with this. Hope this post gave you some new words to chew on, and some insight on 
-the project I was working on. I hope to share a bit more about cloud services on another chapter. 
-Hope you enjoyed it!`,
-`In summer 2024, a team at TietoEvry built a Java-based chatbot agent using Langchain4j, inspired by Langchain 
-in Python. The goal was to create a reliable AI assistant that avoids hallucinations by using contextual information 
-and custom functions (tools). Key concepts included LLMs, agents, RAG (Retrieval Augmented Generation), vector 
-databases, and memory management. The project also highlighted the importance of proper system architecture over 
-just code syntax.`,
+    In LLM terms, context is just a bunch of strings passed to the model alongside the query. This enriches the model’s answers and keeps them grounded in your own data.
+    `, 
+    `
+    There are many ways to provide context to an LLM. One approach we found compelling was to embed all our context into a vector database.
+    
+    Basically, we chunked our documents into smaller bits, converted them into vectors, and saved them in a database optimized for similarity search. When the user makes a request, the model looks for the most relevant chunks, loads them, and uses them to answer.
+    
+    But this whole pipeline is sensitive to a lot of things:
+    
+    * Which model you use to embed the text
+    * How long the text chunks are
+    * Which vector database you go for
+    
+    We tried different combinations and got a deeper understanding of how much these little details affect performance and quality.
+    `, 
+    `
+    Besides static context, another way to enrich responses is by adding memory — letting the model "remember" previous interactions.
+    
+    We explored using LangChain’s memory modules to store both the user’s question and the model’s response. One idea was to persist this into a DB and treat it as dynamic context. This way, the conversation itself becomes part of the model’s reference material.
+    
+    There are also simpler ways — like using .loadDocs() to inject documents or history into the model without building a full custom pipeline. Still, it was interesting to test both approaches and understand what’s going on under the hood.
+    `, 
+    `
+    One of the biggest personal learnings came from the non-AI side of the project: architecture.
+    
+    At the time, I was 21 — and mostly focused on syntax. I hadn’t really given much thought to how a service should be structured: file layout, framework decisions, scalability, naming conventions, and just best practices in general. Not the quick get-arounds, but the solid patterns that help you when your project grows.
+    
+    Designing this project with a team made me see how important architecture really is — and how much easier things get when your code is clean and your structure is clear.
+    `, 
+    `
+    These were some of the things I learned and worked with during the project. From tools and agents to memory and RAG pipelines — and from embeddings to endpoints. But more than that, I learned to zoom out a bit. To think not just about the code, but how it fits together, and how to build something real.
+    
+    Hope this post gave you some new words to chew on, and a glimpse into the project I was part of. I’ll probably write another one soon — maybe on how we integrated cloud services next.
+    
+    Hope you enjoyed it!`,
     ],
 };
 
