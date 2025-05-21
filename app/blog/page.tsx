@@ -8,42 +8,62 @@ export default function BlogPage() {
     {
       title: "Building a second brain: a new purpose.",
       content:
-        "Having almost finished my web-portfolio, I bumped into this book. (I am reading it now 📖)",
+        `Having almost finished my web-portfolio, I bumped into this book.
+        ---------------------------------------------  
+        PENDING. ⏳
+      `,
       link: "/blog",
     },
     {
       title: "GIT: the information manager from hell",
-      content: "GIT, its history, and some basic concepts. (I'm on it 🚀)",
+      content: `GIT, its history, and some basic concepts.
+      ---------------------------------------------
+      PENDING. ⏳
+      `,
       link: "/blog",
     },
     {
       title:
         "Teaching a computer to learn: A summary of Nielsen's book about Machine Learning and Deep Neural Networks.",
-      content: "Summary of this great read. (Soon to arrive 📅)",
+      content: `Summary of this great read.
+      ---------------------------------------------
+      PENDING. ⏳
+      `,
       link: "/blog",
     },
     {
       title: "Code Obfuscation: meaning, techniques and tools",
-      content: "Obfuscation's goals and mechanisms. A brief introduction.",
-      link: "/blog",
+      content: `Obfuscation's goals and mechanisms. A brief introduction.
+      ---------------------------------------------
+      PUBLISHED. ✅
+      `,
+      link: "/blog/fourthEntry",
     },
     {
       title: "A brief introduction to DEVOPS.",
       content:
-        "From commit and pushing to the right branches, through code review and deployment.",
-      link: "/blog",
+        `From commit and pushing to the right branches, through code review and deployment.
+        ---------------------------------------------
+        PUBLISED. ✅
+        `,
+      link: "/blog/thirdEntry",
     },
     {
       title:
         "Building a Langchain4j chatbot agent for banking customer service.",
       content:
-        "Project done internally together with 15 other co-workers. I describe the general architecture of the service, the technologies, and the teamwork experience.",
+        `Project done internally together with 15 other co-workers. I describe the general architecture of the service, the technologies, and the teamwork experience.
+        ---------------------------------------------
+        PUBLISED. ✅`,
       link: "/blog/secondEntry",
     },
     {
       title: "Working experience first year: A brief summary.",
       content:
-        "In this blog post, I cover the first impressions of starting an amazing journey at a huge fintech company.",
+        `In this blog post, I cover the first impressions of starting an amazing journey at a huge fintech company.
+        ---------------------------------------------
+        PUBLISED. ✅
+        `,
       link: "/blog/firstEntry",
     },
   ];
@@ -60,7 +80,7 @@ export default function BlogPage() {
         {cards.map((card, index) => (
           <Link key={index} className="w-full max-w-md" href={card.link}>
             <Card className="cursor-pointer hover:shadow-lg transition">
-              <CardBody>
+              <CardBody style={{ whiteSpace: 'pre-line' }}>
                 <h2 className="text-xl font-bold">{card.title}</h2>
                 <p className="mt-2 text-gray-600">{card.content}</p>
               </CardBody>

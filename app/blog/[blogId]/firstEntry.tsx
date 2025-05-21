@@ -134,13 +134,21 @@ export const thirdEntry = {
     "The result",
   ],
   paragraphs: [
-    `Building a large-scale application — especially one that brings together several minds at each stage — demands powerful tools to coordinate efforts and ensure quality output at every iteration. Think of it like a car factory: from importing materials, welding the metal frames, installing electronics, to final testing and shipping, each step needs precision and structure. In software, this structured approach is what we call DevOps (short for Developer Operations) — a set of practices and tools that bring development and operations together to produce reliable, secure, and scalable code.`,
-    `A core tool in this process is Git — a version control system that allows developers to track and manage changes across files and directories. It lets you create separate versions (branches) of the code where you can work freely, make changes, and later propose merging them into the main version. Git gives teams a safety net, allowing experimentation and iteration without jeopardizing the working product. If you’re new to Git, you’ll find a more detailed introduction in the previous post on this blog.`,
-    `The remote — also referred to as the codebase — is where the project lives. Usually hosted in the cloud (i.e., on a server somewhere far away), the remote includes Git project tools and adds features like protected branches, access control, and policies for merging changes. It often supports automatic actions such as pipelines that run tests or deployments when new code is pushed. The most well-known remotes are GitHub and Bitbucket, though cloud giants like AWS and Azure now offer their own repository solutions. A solid and secure remote is key to keeping all minds in sync and delivering consistent progress.`,
+    `Building a large-scale application — especially one that brings together several minds at each stage — demands powerful tools to coordinate efforts and ensure quality output at every iteration. Think of it like a car factory: from importing materials, welding the metal frames, installing electronics, to final testing and shipping, each step needs precision and structure. In software, this structured approach is what we call DevOps (short for Developer Operations) — a set of practices and tools that bring development and operations together to produce reliable, secure, and scalable code.
+    `,
+
+    `A core tool in this process is Git — a version control system that allows developers to track and manage changes across files and directories. It lets you create separate versions (branches) of the code where you can work freely, make changes, and later propose merging them into the main version. Git gives teams a safety net, allowing experimentation and iteration without jeopardizing the working product. If you’re new to Git, you’ll find a more detailed introduction in the some other post on this blog.
+    `,
+
+    `The remote — also referred to as the codebase — is where the project lives. Usually hosted in the cloud (i.e., on a server somewhere far away), the remote includes Git project tools and adds features like protected branches, access control, and policies for merging changes. It often supports automatic actions such as pipelines that run tests or deployments when new code is pushed. The most well-known remotes are GitHub and Bitbucket, though cloud giants like AWS and Azure now offer their own repository solutions. A solid and secure remote is key to keeping all minds in sync and delivering consistent progress.
+    `,
+
     `Everything starts with a request — a feature or fix from the client — passed on to the team lead, who breaks it down into tickets and assigns them to developers. From there, the developer creates a new branch from the latest code — what we call “branching out from main” — and dives into the requirements. After implementing the changes, the developer commits the work and pushes it to the remote, making it visible to the rest of the team.
       
-    But things don’t just land on the main branch. Most remotes have strict policies in place: merge requests, pull requests, and user permissions help ensure only reviewed, tested, and approved code gets through. Once a change is merged into the main branch, it can automatically trigger a chain of actions — running tests, checking code quality, or even deploying the build to a staging or testing environment. When dealing with sensitive products, clients often have their own testing setups for additional validation.`,
-    `Delivering great software rarely happens in big jumps. It’s about shipping small features, solving specific bugs, and doing so in small, repeatable iterations. This rhythm ensures that changes are quick to test, easy to reverse, and safe to roll out. Ultimately, this makes the development process more secure, and helps guarantee the stability, safety, and performance of the final product — especially when many people are involved and the stakes are high.`    
+    But things don’t just land on the main branch. Most remotes have strict policies in place: merge requests, pull requests, and user permissions help ensure only reviewed, tested, and approved code gets through. Once a change is merged into the main branch, it can automatically trigger a chain of actions — running tests, checking code quality, or even deploying the build to a staging or testing environment. When dealing with sensitive products, clients often have their own testing setups for additional validation.
+    `,
+    `Delivering great software rarely happens in big jumps. It’s about shipping small features, solving specific bugs, and doing so in small, repeatable iterations. This rhythm ensures that changes are quick to test, easy to reverse, and safe to roll out. Ultimately, this makes the development process more secure, and helps guarantee the stability, safety, and performance of the final product — especially when many people are involved and the stakes are high.
+    `,    
   ],
 };
 
@@ -155,9 +163,21 @@ export const fourthEntry = {
     "Other measures",
   ],
   paragraphs: [
-    "Some years ago, messing around with some python scrapers, I realized at some point that acquiring interesting data was simple and straightforward. Nowadays, that same interesting data has become a clear valuable asset, and companies displaying it are well aware of protecting it. Say for example you are a big finance website, that has achieved to gather real time information of a significant amount of tickers (stocks). You pay for a bunch of API keys, and you makes sure you are compliant with the business you are running, and loyal to your providers… until you find script kiddies stealing and re-selling the same data you are displaying in your website. Something must be done.",
-    "There are some ways of scraping data. The two ways I have been taught to do this is, either by searching for a specific id of the html element, or you somehow discover the endpoint that populates the front-end with nice, clear and structured data.",
-    "To fight back, companies have started protecting both: the ids for the html elements containing the information now can change upon each request, and the endpoints are now secured with session cookies, http headers, and so on. They basically create their own dynamic naming convention to assign id- and class-names to the different html elements, making use of js scripts to rotate and update the names at a frequent rate. For this, you don’t really need to be a genius: there are several open-source tools that allow you to do this, depending on the language you are trying to obfuscate. A quick google search can present you with some powerful open source obfuscators.",
-    "Of course, obfuscating the code sent to you browser can be a first step to secure your product, but HTTP request headers, ip address filtering, robot.txt files and other measures are often used against data stealing. If you ever encounter this kind of wall, be proud: it’s a clear sign of valuable data you are encountering.",
+    `A few years ago, while playing around with some Python scrapers, I realized how simple and straightforward it was to acquire interesting data. What was once just an exploratory activity has now become a serious battleground. Today, the same data — especially if it’s timely, structured, and relevant — is a real asset. Companies know this.
+
+Take a major finance website, for example. They pay for multiple API keys, maintain compliance with their data providers, and build a solid, valuable product by displaying real-time stock information. Then, they discover a handful of script kiddies scraping and reselling that same data for profit. It’s more than just a nuisance — it’s theft. And at some point, something has to be done.
+`, 
+    `There are a couple of common ways to scrape data. The first is by targeting specific HTML element IDs or class names that contain the information you're after. The second — often a more elegant approach — involves discovering the API endpoint that populates the front-end. If you’re lucky, you’ll find an exposed endpoint returning nice, clean JSON, ready to be parsed and used.
+
+For a while, either method would get you far. But not anymore.
+`,
+    `To defend their data, companies have started locking down both the structure and the access points. HTML IDs and classes are now dynamic, changing with each request or at regular intervals. Endpoints are protected using session cookies, authentication headers, CSRF tokens, and more. Many sites even generate randomized identifiers for every element using JavaScript — a tactic powered by widely available open-source obfuscation tools.
+
+You don’t need to be a genius to implement this kind of defense; if you're serious about protecting your product, these tools are just a Google search away.
+`, 
+    `Of course, client-side obfuscation is just the first line of defense. Additional layers include filtering based on IP addresses, deploying bot protection rules, using robots.txt to instruct crawlers, and monitoring suspicious traffic patterns.
+
+And here’s a fun thought: if you ever hit one of these walls, take a moment to feel proud. It usually means you’ve found something valuable — something someone else has put serious effort into protecting.
+`, 
   ],
 };
