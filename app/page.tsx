@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Typewriter } from 'react-simple-typewriter'
 import { Link } from "@heroui/link";
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
@@ -96,12 +97,40 @@ export default function Home() {
       <VisitLogger />
       <div className="inline-block max-w-xl text-center justify-center">
         <span className={title({ size: "lg", fullWidth: false })}>
-          Hello&nbsp;
+          <Typewriter
+            words={[
+              'Hello',          // English
+              'Hola',            // Spanish
+              'Bonjour',         // French
+              '안녕',        // Korean – 안녕
+              'Привіт',          // Ukrainian – Привіт
+              'Hallo',           // German
+              'Ciao',            // Italian
+              'नमस्ते',         // Hindi – नमस्ते
+              'Olá',             // Portuguese
+              'Terve',             // Finnish
+              'Hei',             // Norwegian
+              'Γεια σου',        // Greek – Yassou
+              'Hej',             // Swedish
+              'سلام',           // Arabic – سلام
+              '你好',          // Chinese – 你好
+              'こんにちは',      // Japanese – こんにちは
+              'Merhaba',         // Turkish
+              'Szia',            // Hungarian
+              'Sawubona',        // Zulu
+            ]}
+            loop={true}
+            cursor
+            cursorStyle="_"
+            typeSpeed={80}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
         </span>
         <span
           className={title({ color: "yellow", size: "lg", fullWidth: false })}
         >
-          World&nbsp;
+          World!
         </span>
         <span className={title({ size: "lg", fullWidth: false })}>!</span>
         <br />
