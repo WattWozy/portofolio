@@ -44,7 +44,7 @@ export default function BlogPage() {
       title: "Working experience first year: A brief summary.",
       content:
         "In this blog post, I cover the first impressions of starting an amazing journey at a huge fintech company.",
-      link: "/blog",
+      link: "/blog/firstEntry",
     },
   ];
 
