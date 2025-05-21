@@ -3,20 +3,59 @@ export const firstEntry = {
   title: "Working experience first year: A brief summary",
   timestamp: "2024-05-27T10:30:00Z",
   headers: [
-    "Application process",
+    "Introduction", 
+    "Landing the job: nerves, calls, and a breakthrough",
     "About the people",
-    "Initial team: the blue ones",
-    "About knowledge sharing culture",
-    "An introduction to architecture",
-    "About the learning process, and the need for thirst",
+    "Day One and beyond: entering the code jungle",
+    "Knowledge flows: How we shared and grew",
+    "Looking ahead: growth, doubt and direction"
   ],
   paragraphs: [
-    "It was the third and last year in my bachelor’s degree, and I knew I had to be punctual and eager on my job applications. I started applying systematically to all possible job openings, graduate programs, internships, and the like. It was only after a personal video, a technical java quiz, and three interviews that I eventually got the call from the HR employee I had been in contact with. Sweaty and nervous, taking the call at the first ring was worth the good news: I had a one-years-contract, full time paid, on a huge banking-software company. The following paragraphs aim to describe the impressions and feelings, the challenges and profits I have been experiencing for the last year and a half. ",
-    "I would like to start with the most essential element of any job: the colleagues. Few days were needed to taste the atmosphere of a friendly, sharp and fun bunch of peers. They all seemed to excel on how relaxed and confident they were. I guess, by contrast, my mouth didn’t dare to let many words jump out to the conversation. In the end, it’s the colleagues’ that have locked me into coming early every day to the office, and not leaving the building before the contract’s specification. They had not arrived from fancy universities, and the majority had not even got a master’s degree. In fact, one of the friend I consider sharpest, which had rapidly escalated from frontend tasks to deployment files and server configurations counted with just a popular full-stack bootcamp he had completed in some months. One great factor I appreciated was the small age difference of the colleagues I spent most time with. As I mentioned: I was overwhelmed at how brilliant everyone was, and felt much like an impostor in the daily tasks.",
-    'The first day, after some introductory sessions with one of the chiefs at the section, I got to know my mentor. The day after, with all transparency, they bumped me into the Daily Stand Up, a meeting all developer teams have at the start of the day in order to report how work is going, and to quickly sync with the team leader for prioritizing the right tasks. After some days, already with the permissions and access rights in place, I could start taking simple tasks, and discuss the code I was diving into: an enormous project with lots of repos, lots of branches, and a volume of classes I had never seen before. Step by step, the following weeks were all about learning acronyms and the convenient "way of working" of the team. Important stuff I remember from that first team was the need to discuss more often the code one is often visiting, being open about the critical approach one is taking to solve a problem and not being afraid to be the dumb one in the group. Ask, ask, ask, no matter how few answers you get. And write down as much as you can, if you ever are in the same situation.',
-    "When it came to sharing knowledge, I highly appreciated the specific actions taken to spread knowledge. Knowledge in the sense of technical novelties, revising the structure of the code, or taking some time to explain at a high level how the architecture of the project looked. Knowledge could also be lifting up a problem one was facing that week to the seniors in the team, or the other way around: the architects in the team reminding us others how stuff had to be implemented. Another stable specific resource for sharing information about the project was the documentation and the internal network of documents that were revised in parallel to the development of certain stories. As you might imagine: it was a huge volume of data to assimilate, and still is. And this can, of course, either make you desperate and bored, or glad and joyful with an apparently endless fuel for your curiosity. Outside of the team, we had monthly meetings with all other teams across the teams working for other customers, and we even started a hobby-project group, where we shared features of new technology stacks and sat together and developed some simple proofs of concept (PoCs).",
-    'After graduating from university and landing a job contract, my mentality was kind of overflowing with a sense of satisfaction and achievement, thinking life was already solved and the current situation provided for a comfortable survival in the cold Northern European capital. Until the periodic check-in with my mentor and closest boss arrived: I knew I was able to do more, faster and much better. There was a certain feeling of disappointment in the air when I left the first team that made me think about my future as a developer in the same company or in any other one: Where is "forward" now? Keeping learning and delivering faster, better solutions to my daily tasks. Keeping curiosity thirsty for more.',
-  ],
+    `This post is about my first experience working in a corporate environment — from the application process to a year-long perspective on the journey. I want to share how I felt and what I experienced, hoping to present my point of view and personal take on things. I also hope this might help others, in case there are any valuable tips to take away from the post.
+    `,
+    `It was the third and final year of my bachelor’s degree, and I knew I had to be punctual and eager in my job applications. I began applying systematically to every opportunity I could find — graduate programs, internships, full-time positions. Only after a personal video, a technical Java quiz, and three interviews did I finally get the call from the HR employee I’d been in contact with. Sweaty and nervous, I picked up on the first ring. The news was worth it: I had landed a one-year, full-time, paid contract at a massive banking software company.
+    Hope that the following paragraphs can illustrate the impressions, feelings, challenges and gains, that I’ve experienced over the last year and a half.
+    `, 
+    `I’ll start with what I found most essential: the colleagues.
+    
+    It took just a few days to feel the atmosphere — a friendly, sharp, and fun bunch of peers. What stood out was how relaxed and confident they all seemed. By contrast, I barely dared to let a word slip into the conversation at first. And yet, it’s precisely because of them that I came in early every day and didn’t leave the building before my contract allowed.
+    
+    They hadn’t all come from fancy universities. Most didn’t even have a master’s degree. One of the sharpest minds I met — who quickly moved from frontend tweaks to configuring servers and deployment files — had simply completed a popular full-stack bootcamp a few months earlier.
+    
+    One thing I really appreciated was the small age gap between me and the colleagues I spent the most time with. As I said — I was overwhelmed by how brilliant everyone was, and honestly felt like an impostor most days.
+    `, 
+    `On the first day, after some introductory chats with one of the section heads, I met my mentor. The very next day, with full transparency, they threw me straight into the Daily Stand-Up — a short morning meeting for all dev teams to sync up, report progress, and re-prioritize tasks with the team lead.
+    
+    A few days later, once I had all the permissions and access rights in place, I could start taking on simple tasks. That’s when I began diving into the code: a giant project, made up of countless repos, dozens of branches, and more Java classes than I’d ever imagined possible.
+    
+    Step by step, those first weeks were about learning acronyms, project logic, and the team’s preferred “way of working.” Some lessons I still carry with me:
+    
+    * Talk more about the code you’re visiting.
+    * Be open about your thought process when solving a problem.
+    * Don’t be afraid to be the dumb one in the room.
+    * Ask, ask, ask — even if few answers come back.
+    * And write everything down, just in case you ever find yourself in the same spot again.
+    `, 
+    `When it came to knowledge-sharing, I was genuinely impressed by how deliberately it was handled.
+
+    Not just in the sense of discussing technical novelties or revising parts of the code — but also in making time to explain, at a high level, how the whole architecture fit together. Knowledge could mean raising a tough issue you were facing that week and getting input from seniors — or it could come the other way around, with architects reminding us of the “why” behind certain implementations.
+    
+    Documentation was another major source of insight. There was a strong culture of updating internal docs in parallel with story development, which gave you something to fall back on. The volume of information was massive — and still is. That can either make you desperate and bored, or deeply grateful for the endless stream of fuel for your curiosity.
+    
+    Outside of the team, we also had monthly syncs with colleagues working for other customers. And eventually, we started a small hobby-project group, where we shared new tech stacks and built small proofs of concept (PoCs) together — purely for fun.
+    `,
+    `After graduating and landing the job, I had this slightly inflated feeling of satisfaction — like life was somehow already solved, and I could comfortably survive in the cold Northern European capital.
+
+    That illusion cracked a bit during a periodic check-in with my mentor and closest boss. I realized I could — and should — be doing more. Faster. Better.
+    
+    There was a trace of disappointment in the air when I left the first team, and it got me thinking: what’s forward from here?
+    
+    For me, the answer is simple:
+    1) Keep learning.
+    2) Deliver better, faster solutions.
+    3) And stay curious — always thirsty for more.
+    `, 
+    ],
 };
 
 export const secondEntry = {
@@ -28,7 +67,7 @@ export const secondEntry = {
     "Where it all started",
     "First concepts: LLMs and Agents",
     "Context and hallucinations: RAG", 
-    "From text to vectors: Working with vector stores",
+    "From text to vectors",
     "Memory: Saving the Conversation", 
     "AI concepts, and tech in the project",
     "TL;DR:",
@@ -36,26 +75,22 @@ export const secondEntry = {
   paragraphs: [
     `This post is about an internal project carried out at TietoEvry, together with 15 other colleagues, during the summer of 2024. The goal was to create a simple chatbot agent — one that could rely on a specified context (to prevent it from hallucinating) and trigger certain custom-made functions in our code, such as fetching or posting data to an endpoint.
     `,
-    `
-    The inspiration came from a talk by Lizzy Raes at JFokus24. She introduced a Java library called Langchain4j — basically a Java version of the more well-known LangChain (Python). The idea is to bring the same "agentic" behavior into a more object-oriented Java context.
+    `The inspiration came from a talk by Lizzy Raes at JFokus24. She introduced a Java library called Langchain4j — basically a Java version of the more well-known LangChain (Python). The idea is to bring the same "agentic" behavior into a more object-oriented Java context.
     That means being able to instantiate an interface and treat your AI model like a regular object: you send it data, it gives you a response — and under the hood, you can plug in tools, memory, and context. That’s what we wanted to explore.
     `,
-     `
-    Before diving into building, we had to get familiar with two key terms: LLM and Agent.
+    `Before diving into building, we had to get familiar with two key terms: LLM and Agent.
     
     LLM stands for Large Language Model. It's a trained neural network that understands and generates human language. Underneath, it turns words, phrases, even paragraphs into vectors — big arrays of numbers that represent meaning. For example, the word “bad” might become a vector with mostly negative values, while “good” might have more positive ones. This allows the model to “understand” and operate on meaning.
     
     An agent, on the other hand, is an LLM with extra powers. It can access external tools — functions that you’ve defined in your code. You can think of it like this: the agent maps meaning from a user’s input to a trigger — and that trigger might call a function, send a request, or return custom output. Agents are basically LLMs with access to your toolbox. 
     `,
-    `
-    One of the early challenges we faced was the classic: how do we stop the model from hallucinating?
+    `One of the early challenges we faced was the classic: how do we stop the model from hallucinating?
     
     That’s where RAG — Retrieval Augmented Generation — comes in. The idea is simple: instead of just feeding the user query into the model, we also pass along extra information — context. This can be documentation, a previous conversation, or any other relevant data.
 
     In LLM terms, context is just a bunch of strings passed to the model alongside the query. This enriches the model’s answers and keeps them grounded in your own data.
     `, 
-    `
-    There are many ways to provide context to an LLM. One approach we found compelling was to embed all our context into a vector database.
+    `There are many ways to provide context to an LLM. One approach we found compelling was to embed all our context into a vector database.
     
     Basically, we chunked our documents into smaller bits, converted them into vectors, and saved them in a database optimized for similarity search. When the user makes a request, the model looks for the most relevant chunks, loads them, and uses them to answer.
     
@@ -67,22 +102,19 @@ export const secondEntry = {
     
     We tried different combinations and got a deeper understanding of how much these little details affect performance and quality.
     `, 
-    `
-    Besides static context, another way to enrich responses is by adding memory — letting the model "remember" previous interactions.
+    `Besides static context, another way to enrich responses is by adding memory — letting the model "remember" previous interactions.
     
     We explored using LangChain’s memory modules to store both the user’s question and the model’s response. One idea was to persist this into a DB and treat it as dynamic context. This way, the conversation itself becomes part of the model’s reference material.
     
     There are also simpler ways — like using .loadDocs() to inject documents or history into the model without building a full custom pipeline. Still, it was interesting to test both approaches and understand what’s going on under the hood.
     `, 
-    `
-    One of the biggest personal learnings came from the non-AI side of the project: architecture.
+    `One of the biggest personal learnings came from the non-AI side of the project: architecture.
     
     At the time, I was 21 — and mostly focused on syntax. I hadn’t really given much thought to how a service should be structured: file layout, framework decisions, scalability, naming conventions, and just best practices in general. Not the quick get-arounds, but the solid patterns that help you when your project grows.
     
     Designing this project with a team made me see how important architecture really is — and how much easier things get when your code is clean and your structure is clear.
     `, 
-    `
-    These were some of the things I learned and worked with during the project. From tools and agents to memory and RAG pipelines — and from embeddings to endpoints. But more than that, I learned to zoom out a bit. To think not just about the code, but how it fits together, and how to build something real.
+    `These were some of the things I learned and worked with during the project. From tools and agents to memory and RAG pipelines — and from embeddings to endpoints. But more than that, I learned to zoom out a bit. To think not just about the code, but how it fits together, and how to build something real.
     
     Hope this post gave you some new words to chew on, and a glimpse into the project I was part of. I’ll probably write another one soon — maybe on how we integrated cloud services next.
     
