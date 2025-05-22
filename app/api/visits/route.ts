@@ -7,8 +7,10 @@ export async function POST(request: NextRequest) {
   try {
     // Get IP from request headers
     const forwardedFor = request.headers.get("x-forwarded-for");
-    const ip = forwardedFor ? forwardedFor.split(",")[0] : request.ip || "Unknown";
-    
+    const ip = forwardedFor
+      ? forwardedFor.split(",")[0]
+      : request.ip || "Unknown";
+
     const response = await fetch(`${SUPABASE_URL}/rest/v1/visits`, {
       method: "POST",
       headers: {

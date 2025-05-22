@@ -3,19 +3,19 @@ export const firstEntry = {
   title: "Working experience first year: A brief summary",
   timestamp: "2024-05-27T10:30:00Z",
   headers: [
-    "Introduction", 
+    "Introduction",
     "Landing the job: nerves, calls, and a breakthrough",
     "About the people",
     "Day One and beyond: entering the code jungle",
     "Knowledge flows: How we shared and grew",
-    "Looking ahead: growth, doubt and direction"
+    "Looking ahead: growth, doubt and direction",
   ],
   paragraphs: [
     `This post is about my first experience working in a corporate environment — from the application process to a year-long perspective on the journey. I want to share how I felt and what I experienced, hoping to present my point of view and personal take on things. I also hope this might help others, in case there are any valuable tips to take away from the post.
     `,
     `It was the third and final year of my bachelor’s degree, and I knew I had to be punctual and eager in my job applications. I began applying systematically to every opportunity I could find — graduate programs, internships, full-time positions. Only after a personal video, a technical Java quiz, and three interviews did I finally get the call from the HR employee I’d been in contact with. Sweaty and nervous, I picked up on the first ring. The news was worth it: I had landed a one-year, full-time, paid contract at a massive banking software company.
     Hope that the following paragraphs can illustrate the impressions, feelings, challenges and gains, that I’ve experienced over the last year and a half.
-    `, 
+    `,
     `I’ll start with what I found most essential: the colleagues.
     
     It took just a few days to feel the atmosphere — a friendly, sharp, and fun bunch of peers. What stood out was how relaxed and confident they all seemed. By contrast, I barely dared to let a word slip into the conversation at first. And yet, it’s precisely because of them that I came in early every day and didn’t leave the building before my contract allowed.
@@ -23,7 +23,7 @@ export const firstEntry = {
     They hadn’t all come from fancy universities. Most didn’t even have a master’s degree. One of the sharpest minds I met — who quickly moved from frontend tweaks to configuring servers and deployment files — had simply completed a popular full-stack bootcamp a few months earlier.
     
     One thing I really appreciated was the small age gap between me and the colleagues I spent the most time with. As I said — I was overwhelmed by how brilliant everyone was, and honestly felt like an impostor most days.
-    `, 
+    `,
     `On the first day, after some introductory chats with one of the section heads, I met my mentor. The very next day, with full transparency, they threw me straight into the Daily Stand-Up — a short morning meeting for all dev teams to sync up, report progress, and re-prioritize tasks with the team lead.
     
     A few days later, once I had all the permissions and access rights in place, I could start taking on simple tasks. That’s when I began diving into the code: a giant project, made up of countless repos, dozens of branches, and more Java classes than I’d ever imagined possible.
@@ -35,7 +35,7 @@ export const firstEntry = {
     * Don’t be afraid to be the dumb one in the room.
     * Ask, ask, ask — even if few answers come back.
     * And write everything down, just in case you ever find yourself in the same spot again.
-    `, 
+    `,
     `When it came to knowledge-sharing, I was genuinely impressed by how deliberately it was handled.
 
     Not just in the sense of discussing technical novelties or revising parts of the code — but also in making time to explain, at a high level, how the whole architecture fit together. Knowledge could mean raising a tough issue you were facing that week and getting input from seniors — or it could come the other way around, with architects reminding us of the “why” behind certain implementations.
@@ -54,8 +54,8 @@ export const firstEntry = {
     1) Keep learning.
     2) Deliver better, faster solutions.
     3) And stay curious — always thirsty for more.
-    `, 
-    ],
+    `,
+  ],
 };
 
 export const secondEntry = {
@@ -66,9 +66,9 @@ export const secondEntry = {
     "Introduction",
     "Where it all started",
     "First concepts: LLMs and Agents",
-    "Context and hallucinations: RAG", 
+    "Context and hallucinations: RAG",
     "From text to vectors",
-    "Memory: Saving the Conversation", 
+    "Memory: Saving the Conversation",
     "AI concepts, and tech in the project",
     "TL;DR:",
   ],
@@ -89,7 +89,7 @@ export const secondEntry = {
     That’s where RAG — Retrieval Augmented Generation — comes in. The idea is simple: instead of just feeding the user query into the model, we also pass along extra information — context. This can be documentation, a previous conversation, or any other relevant data.
 
     In LLM terms, context is just a bunch of strings passed to the model alongside the query. This enriches the model’s answers and keeps them grounded in your own data.
-    `, 
+    `,
     `There are many ways to provide context to an LLM. One approach we found compelling was to embed all our context into a vector database.
     
     Basically, we chunked our documents into smaller bits, converted them into vectors, and saved them in a database optimized for similarity search. When the user makes a request, the model looks for the most relevant chunks, loads them, and uses them to answer.
@@ -101,25 +101,25 @@ export const secondEntry = {
     * Which vector database you go for
     
     We tried different combinations and got a deeper understanding of how much these little details affect performance and quality.
-    `, 
+    `,
     `Besides static context, another way to enrich responses is by adding memory — letting the model "remember" previous interactions.
     
     We explored using LangChain’s memory modules to store both the user’s question and the model’s response. One idea was to persist this into a DB and treat it as dynamic context. This way, the conversation itself becomes part of the model’s reference material.
     
     There are also simpler ways — like using .loadDocs() to inject documents or history into the model without building a full custom pipeline. Still, it was interesting to test both approaches and understand what’s going on under the hood.
-    `, 
+    `,
     `One of the biggest personal learnings came from the non-AI side of the project: architecture.
     
     At the time, I was 21 — and mostly focused on syntax. I hadn’t really given much thought to how a service should be structured: file layout, framework decisions, scalability, naming conventions, and just best practices in general. Not the quick get-arounds, but the solid patterns that help you when your project grows.
     
     Designing this project with a team made me see how important architecture really is — and how much easier things get when your code is clean and your structure is clear.
-    `, 
+    `,
     `These were some of the things I learned and worked with during the project. From tools and agents to memory and RAG pipelines — and from embeddings to endpoints. But more than that, I learned to zoom out a bit. To think not just about the code, but how it fits together, and how to build something real.
     
     Hope this post gave you some new words to chew on, and a glimpse into the project I was part of. I’ll probably write another one soon — maybe on how we integrated cloud services next.
     
     Hope you enjoyed it!`,
-    ],
+  ],
 };
 
 export const thirdEntry = {
@@ -148,7 +148,7 @@ export const thirdEntry = {
     But things don’t just land on the main branch. Most remotes have strict policies in place: merge requests, pull requests, and user permissions help ensure only reviewed, tested, and approved code gets through. Once a change is merged into the main branch, it can automatically trigger a chain of actions — running tests, checking code quality, or even deploying the build to a staging or testing environment. When dealing with sensitive products, clients often have their own testing setups for additional validation.
     `,
     `Delivering great software rarely happens in big jumps. It’s about shipping small features, solving specific bugs, and doing so in small, repeatable iterations. This rhythm ensures that changes are quick to test, easy to reverse, and safe to roll out. Ultimately, this makes the development process more secure, and helps guarantee the stability, safety, and performance of the final product — especially when many people are involved and the stakes are high.
-    `,    
+    `,
   ],
 };
 
@@ -166,7 +166,7 @@ export const fourthEntry = {
     `A few years ago, while playing around with some Python scrapers, I realized how simple and straightforward it was to acquire interesting data. What was once just an exploratory activity has now become a serious battleground. Today, the same data — especially if it’s timely, structured, and relevant — is a real asset. Companies know this.
 
 Take a major finance website, for example. They pay for multiple API keys, maintain compliance with their data providers, and build a solid, valuable product by displaying real-time stock information. Then, they discover a handful of script kiddies scraping and reselling that same data for profit. It’s more than just a nuisance — it’s theft. And at some point, something has to be done.
-`, 
+`,
     `There are a couple of common ways to scrape data. The first is by targeting specific HTML element IDs or class names that contain the information you're after. The second — often a more elegant approach — involves discovering the API endpoint that populates the front-end. If you’re lucky, you’ll find an exposed endpoint returning nice, clean JSON, ready to be parsed and used.
 
 For a while, either method would get you far. But not anymore.
@@ -174,10 +174,10 @@ For a while, either method would get you far. But not anymore.
     `To defend their data, companies have started locking down both the structure and the access points. HTML IDs and classes are now dynamic, changing with each request or at regular intervals. Endpoints are protected using session cookies, authentication headers, CSRF tokens, and more. Many sites even generate randomized identifiers for every element using JavaScript — a tactic powered by widely available open-source obfuscation tools.
 
 You don’t need to be a genius to implement this kind of defense; if you're serious about protecting your product, these tools are just a Google search away.
-`, 
+`,
     `Of course, client-side obfuscation is just the first line of defense. Additional layers include filtering based on IP addresses, deploying bot protection rules, using robots.txt to instruct crawlers, and monitoring suspicious traffic patterns.
 
 And here’s a fun thought: if you ever hit one of these walls, take a moment to feel proud. It usually means you’ve found something valuable — something someone else has put serious effort into protecting.
-`, 
+`,
   ],
 };

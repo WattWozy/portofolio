@@ -12,7 +12,7 @@ export async function GET() {
           apikey: SUPABASE_ANON_KEY,
           Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         },
-      }
+      },
     );
 
     if (!response.ok) throw new Error("Failed to fetch message count");
@@ -21,14 +21,18 @@ export async function GET() {
     return NextResponse.json({ success: true, count: data[0].count });
   } catch (error) {
     console.error("Error fetching message count:", error);
-    return NextResponse.json({ error: "Failed to fetch message count" }, { status: 500 });
+
+    return NextResponse.json(
+      { error: "Failed to fetch message count" },
+      { status: 500 },
+    );
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const { name, message } = await request.json();
-    
+
     const response = await fetch(`${SUPABASE_URL}/rest/v1/messages`, {
       method: "POST",
       headers: {
@@ -46,6 +50,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error("Error posting message:", error);
-    return NextResponse.json({ error: "Failed to post message" }, { status: 500 });
+
+    return NextResponse.json(
+      { error: "Failed to post message" },
+      { status: 500 },
+    );
   }
-} 
+}

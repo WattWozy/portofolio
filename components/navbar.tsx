@@ -26,23 +26,24 @@ export const Navbar = () => {
   const [isSponsorModalOpen, setIsSponsorModalOpen] = useState(false);
   const [messageCount, setMessageCount] = useState<number | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   useEffect(() => {
     const fetchMessageCount = async () => {
       try {
-        const response = await fetch('/api/messages');
+        const response = await fetch("/api/messages");
         const data = await response.json();
+
         if (data.success) {
           setMessageCount(data.count);
         }
       } catch (error) {
-        console.error('Failed to fetch message count:', error);
+        console.error("Failed to fetch message count:", error);
       }
     };
 
     fetchMessageCount();
   }, []);
-  
+
   const searchInput = (
     <Input
       aria-label="Search"
@@ -66,15 +67,18 @@ export const Navbar = () => {
 
   return (
     <>
-      <HeroUINavbar 
-        maxWidth="xl" 
-        position="sticky"
+      <HeroUINavbar
         isMenuOpen={isMenuOpen}
+        maxWidth="xl"
+        position="sticky"
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">
-            <NextLink className="flex justify-start items-center gap-1" href="/">
+            <NextLink
+              className="flex justify-start items-center gap-1"
+              href="/"
+            >
               <p className="font-bold text-inherit">TietoEvry</p>
             </NextLink>
           </NavbarBrand>
@@ -136,9 +140,9 @@ export const Navbar = () => {
           <div className="mx-4 mt-2 flex flex-col gap-4">
             {siteConfig.navMenuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
-                <NextLink 
-                  href={item.href}
+                <NextLink
                   className="w-full py-4 px-2 text-lg hover:bg-default-100 active:bg-default-200 transition-colors rounded-lg"
+                  href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -148,10 +152,10 @@ export const Navbar = () => {
           </div>
         </NavbarMenu>
       </HeroUINavbar>
-      
-      <SponsorModal 
-        isOpen={isSponsorModalOpen} 
-        onClose={() => setIsSponsorModalOpen(false)} 
+
+      <SponsorModal
+        isOpen={isSponsorModalOpen}
+        onClose={() => setIsSponsorModalOpen(false)}
       />
     </>
   );

@@ -17,7 +17,7 @@ export function VisitLogger() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({})
+          body: JSON.stringify({}),
         });
 
         // Mark this session as logged
