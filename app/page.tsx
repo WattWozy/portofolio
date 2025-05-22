@@ -111,10 +111,10 @@ export default function Home() {
           <Typewriter
             cursor
             cursorStyle="_"
-            delaySpeed={1000}
+            delaySpeed={1500}
             deleteSpeed={50}
             loop={true}
-            typeSpeed={80}
+            typeSpeed={120}
             words={[
               "Hello", // English
               "Hola", // Spanish
@@ -139,11 +139,10 @@ export default function Home() {
           />
         </span>
         <span
-          className={title({ color: "yellow", size: "lg", fullWidth: false })}
+          className={title({ color: "green", size: "lg", fullWidth: false })}
         >
           World!
         </span>
-        <span className={title({ size: "lg", fullWidth: false })}>!</span>
         <br />
         <br /> <br />
         <div className={subtitle({ class: "mt-4" })}>
