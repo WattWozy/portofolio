@@ -7,10 +7,12 @@ import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
 
+import TodoTable from "@/components/todoTable";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { VisitLogger } from "@/components/VisitLogger";
+import { Todo } from "@/types";
 
 interface Visit {
   id: string;
@@ -21,6 +23,9 @@ interface Visit {
 export default function Home() {
   const [visitCount, setVisitCount] = useState<number>(0);
   const [visits, setVisits] = useState<Visit[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [completedCount, setCompletedCount] = useState<number>(0);
+  const [totalCount, setTotalCount] = useState<number>(0);
 
   useEffect(() => {
     let isMounted = true;
@@ -46,6 +51,34 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchTodos = async () => {
+      try {
+        const response = await fetch("/api/todos");
+        const { data } = await response.json();
+
+        console.log("Received response:", JSON.stringify(response));
+
+        if (isMounted) {
+          setTodos(data);
+          setCompletedCount(
+            data.filter((todo: Todo) => todo.status === "completed").length,
+          );
+          setTotalCount(data.length);
+        }
+      } catch (error) {
+        console.error("Failed to fetch todos:", error);
+      }
+    };
+
+    fetchTodos(); // Move this outside the try-catch
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   // Get the most recent visits
   const recentVisits = visits
     .sort(
@@ -203,6 +236,13 @@ export default function Home() {
             </tbody>
           </table>
         </div>
+
+        {/* Todo Section */}
+        <TodoTable
+          completedCount={completedCount}
+          todos={todos}
+          totalCount={totalCount}
+        />
       </div>
     </section>
   );
