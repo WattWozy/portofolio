@@ -29,7 +29,7 @@ export default function AboutPage() {
 
         <Card className={"py-4"}>
           <div className="p-4">
-            <h2 className="text-xl font-bold mb-2">What do I work on?</h2>
+            <h2 className="text-xl font-bold mb-2">What am I doing?</h2>
             <Divider />
             <p className="mt-2">
               {
