@@ -13,6 +13,7 @@ import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { VisitLogger } from "@/components/VisitLogger";
 import { Todo } from "@/types";
+import { PrivacyModal } from "@/components/PrivacyModal";
 
 interface Visit {
   id: string;
@@ -26,6 +27,24 @@ export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [completedCount, setCompletedCount] = useState<number>(0);
   const [totalCount, setTotalCount] = useState<number>(0);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+
+  useEffect(() => {
+    // Check if user has already accepted the privacy notice
+    const hasAcceptedPrivacy = localStorage.getItem('privacyAccepted');
+    if (!hasAcceptedPrivacy) {
+      setShowPrivacyModal(true);
+    }
+  }, []);
+
+  const handlePrivacyAccept = () => {
+    localStorage.setItem('privacyAccepted', 'true');
+    setShowPrivacyModal(false);
+  };
+
+  const handlePrivacyClose = () => {
+    setShowPrivacyModal(false);
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -138,6 +157,11 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <PrivacyModal 
+        isOpen={showPrivacyModal}
+        onClose={handlePrivacyClose}
+        onAccept={handlePrivacyAccept}
+      />
       <VisitLogger />
       <div className="inline-block max-w-xl text-center justify-center">
         <span className={title({ size: "lg", fullWidth: false })}>
