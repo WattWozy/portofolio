@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
-
 interface PrivacyModalProps {
   isOpen: boolean;
   onClose: () => void;
   onAccept: () => void;
 }
 
-export const PrivacyModal = ({ isOpen, onClose, onAccept }: PrivacyModalProps) => {
+export const PrivacyModal = ({
+  isOpen,
+  onClose,
+  onAccept,
+}: PrivacyModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -23,18 +25,20 @@ export const PrivacyModal = ({ isOpen, onClose, onAccept }: PrivacyModalProps) =
         </div>
         <div className="space-y-4">
           <p className="text-gray-600 dark:text-gray-300">
-            This website collects and stores IP addresses for the purpose of tracking visitor statistics. 
-            Your IP address is stored securely and is partially masked for privacy (e.g., 192.168.***.***).
+            This website collects and stores IP addresses for the purpose of
+            tracking visitor statistics. Your IP address is stored securely and
+            is partially masked for privacy (e.g., 192.168.***.***).
           </p>
           <p className="text-gray-600 dark:text-gray-300">
-            This data is used solely for analytics and is not shared with third parties.
+            This data is used solely for analytics and is not shared with third
+            parties.
           </p>
           <div className="flex gap-3 justify-end">
             <button
               className="px-4 py-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
               onClick={onClose}
             >
-               {"\u{1F449}"} 
+              {"\u{1F449}"}
             </button>
             <button
               className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
@@ -47,4 +51,4 @@ export const PrivacyModal = ({ isOpen, onClose, onAccept }: PrivacyModalProps) =
       </div>
     </div>
   );
-}; 
+};

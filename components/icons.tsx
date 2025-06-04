@@ -185,3 +185,25 @@ export const SearchIcon = (props: IconSvgProps) => (
     />
   </svg>
 );
+
+export const PaperPlaneIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    height={size || height}
+    role="presentation"
+    viewBox="0 0 24 24"
+    width={size || width}
+    {...props}
+  >
+    <path
+      d="M21.198 2.433L2.433 10.098c-.9.35-.9.9-.15 1.125l3.6 1.35 1.35 4.05c.225.675.675.9 1.35.675l3.15-1.35 6.3 4.5c.675.45 1.35.225 1.575-.675l3.15-14.85c.225-.9-.45-1.35-1.35-1.125zM7.433 12.098l10.8-4.5-7.2 6.3-1.8 5.4-1.8-7.2z"
+      fill="#38BDF8"
+    />
+  </svg>
+);
