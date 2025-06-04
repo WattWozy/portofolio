@@ -15,6 +15,7 @@ import { GithubIcon, PaperPlaneIcon } from "@/components/icons";
 import { VisitLogger } from "@/components/VisitLogger";
 import { Todo } from "@/types";
 import { PrivacyModal } from "@/components/PrivacyModal";
+import { SponsorModal } from "@/components/SponsorModal";
 
 interface Visit {
   id: string;
@@ -159,126 +160,133 @@ export default function Home() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <PrivacyModal
-        isOpen={showPrivacyModal}
-        onAccept={handlePrivacyAccept}
-        onClose={handlePrivacyClose}
+    <>
+      <SponsorModal
+        isOpen={isSponsorModalOpen}
+        title="Contact me!"
+        onClose={() => setIsSponsorModalOpen(false)}
       />
-      <VisitLogger />
-      <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title({ size: "lg", fullWidth: false })}>
-          <Typewriter
-            cursor
-            cursorStyle="_"
-            delaySpeed={1500}
-            deleteSpeed={50}
-            loop={true}
-            typeSpeed={120}
-            words={[
-              "Hello", // English
-              "Hola", // Spanish
-              "Bonjour", // French
-              "안녕", // Korean – 안녕
-              "Привіт", // Ukrainian – Привіт
-              "Hallo", // German
-              "Ciao", // Italian
-              "नमस्ते", // Hindi – नमस्ते
-              "Olá", // Portuguese
-              "Terve", // Finnish
-              "Hei", // Norwegian
-              "Γεια σου", // Greek – Yassou
-              "Hej", // Swedish
-              "سلام", // Arabic – سلام
-              "你好", // Chinese – 你好
-              "こんにちは", // Japanese – こんにちは
-              "Merhaba", // Turkish
-              "Szia", // Hungarian
-              "Sawubona", // Zulu
-            ]}
-          />
-        </span>
-        <span
-          className={title({ color: "green", size: "lg", fullWidth: false })}
-        >
-          World!
-        </span>
-        <br />
-        <br /> <br />
-        <div className={subtitle({ class: "mt-4" })}>
-          {
-            '"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better" ~ Edsger Dijkstra'
-          }
-        </div>
-      </div>
-
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
-        <Button
-          className="text-sm font-normal text-default-600 bg-default-100"
-          startContent={<PaperPlaneIcon className="text-danger" />}
-          variant="flat"
-          onClick={() => setIsSponsorModalOpen(true)}
-        >
-          Shoot!
-        </Button>
-      </div>
-
-      <div className="mt-8 flex flex-col items-center gap-4">
-        <Snippet hideCopyButton hideSymbol variant="bordered">
-          <span>
-            Visit counter: <Code color="primary">{visitCount}</Code>
-          </span>
-        </Snippet>
-
-        <div className="w-full max-w-2xl">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="py-2 px-4 text-left font-semibold">
-                  IP<span className="text-green-600">(v6)</span> Address
-                </th>
-                <th className="py-2 px-4 text-left font-semibold">
-                  Visit Date
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentVisits.map((visit) => (
-                <tr
-                  key={visit.id}
-                  className="border-b border-gray-100 hover:bg-gray-50"
-                >
-                  <td className="py-2 px-4 font-mono">
-                    <span
-                      className={
-                        visit.ip_address?.includes(":") ? "text-green-600" : ""
-                      }
-                    >
-                      {maskIP(visit.ip_address)}
-                    </span>
-                  </td>
-                  <td className="py-2 px-4">{formatDate(visit.timestamp)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Todo Section */}
-        <TodoTable
-          completedCount={completedCount}
-          todos={todos}
-          totalCount={totalCount}
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <PrivacyModal
+          isOpen={showPrivacyModal}
+          onAccept={handlePrivacyAccept}
+          onClose={handlePrivacyClose}
         />
-      </div>
-    </section>
+        <VisitLogger />
+        <div className="inline-block max-w-xl text-center justify-center">
+          <span className={title({ size: "lg", fullWidth: false })}>
+            <Typewriter
+              cursor
+              cursorStyle="_"
+              delaySpeed={1500}
+              deleteSpeed={50}
+              loop={true}
+              typeSpeed={120}
+              words={[
+                "Hello", // English
+                "Hola", // Spanish
+                "Bonjour", // French
+                "안녕", // Korean – 안녕
+                "Привіт", // Ukrainian – Привіт
+                "Hallo", // German
+                "Ciao", // Italian
+                "नमस्ते", // Hindi – नमस्ते
+                "Olá", // Portuguese
+                "Terve", // Finnish
+                "Hei", // Norwegian
+                "Γεια σου", // Greek – Yassou
+                "Hej", // Swedish
+                "سلام", // Arabic – سلام
+                "你好", // Chinese – 你好
+                "こんにちは", // Japanese – こんにちは
+                "Merhaba", // Turkish
+                "Szia", // Hungarian
+                "Sawubona", // Zulu
+              ]}
+            />
+          </span>
+          <span
+            className={title({ color: "green", size: "lg", fullWidth: false })}
+          >
+            World!
+          </span>
+          <br />
+          <br /> <br />
+          <div className={subtitle({ class: "mt-4" })}>
+            {
+              '"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better" ~ Edsger Dijkstra'
+            }
+          </div>
+        </div>
+
+        <div className="flex gap-3">
+          <Link
+            isExternal
+            className={buttonStyles({ variant: "bordered", radius: "full" })}
+            href={siteConfig.links.github}
+          >
+            <GithubIcon size={20} />
+            GitHub
+          </Link>
+          <Button
+            className="text-sm font-normal text-default-600 bg-default-100"
+            startContent={<PaperPlaneIcon className="text-danger" />}
+            variant="flat"
+            onClick={() => setIsSponsorModalOpen(true)}
+          >
+            Shoot!
+          </Button>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <Snippet hideCopyButton hideSymbol variant="bordered">
+            <span>
+              Visit counter: <Code color="primary">{visitCount}</Code>
+            </span>
+          </Snippet>
+
+          <div className="w-full max-w-2xl">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="py-2 px-4 text-left font-semibold">
+                    IP<span className="text-green-600">(v6)</span> Address
+                  </th>
+                  <th className="py-2 px-4 text-left font-semibold">
+                    Visit Date
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentVisits.map((visit) => (
+                  <tr
+                    key={visit.id}
+                    className="border-b border-gray-100 hover:bg-gray-50"
+                  >
+                    <td className="py-2 px-4 font-mono">
+                      <span
+                        className={
+                          visit.ip_address?.includes(":") ? "text-green-600" : ""
+                        }
+                      >
+                        {maskIP(visit.ip_address)}
+                      </span>
+                    </td>
+                    <td className="py-2 px-4">{formatDate(visit.timestamp)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Todo Section */}
+          <TodoTable
+            completedCount={completedCount}
+            todos={todos}
+            totalCount={totalCount}
+          />
+        </div>
+      </section>
+    </>
   );
 }

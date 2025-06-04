@@ -155,6 +155,7 @@ export const Navbar = () => {
 
       <SponsorModal
         isOpen={isSponsorModalOpen}
+        title="Up for a chat?"
         onClose={() => setIsSponsorModalOpen(false)}
       />
     </>
