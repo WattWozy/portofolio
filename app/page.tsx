@@ -8,12 +8,10 @@ import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
 import { Button } from "@heroui/button";
 
-import TodoTable from "@/components/todoTable";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon, PaperPlaneIcon } from "@/components/icons";
 import { VisitLogger } from "@/components/VisitLogger";
-import { Todo } from "@/types";
 import { PrivacyModal } from "@/components/PrivacyModal";
 import { SponsorModal } from "@/components/SponsorModal";
 
@@ -26,9 +24,6 @@ interface Visit {
 export default function Home() {
   const [visitCount, setVisitCount] = useState<number>(0);
   const [visits, setVisits] = useState<Visit[]>([]);
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [completedCount, setCompletedCount] = useState<number>(0);
-  const [totalCount, setTotalCount] = useState<number>(0);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [isSponsorModalOpen, setIsSponsorModalOpen] = useState(false);
 
@@ -74,34 +69,6 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    let isMounted = true;
-
-    const fetchTodos = async () => {
-      try {
-        const response = await fetch("/api/todos");
-        const { data } = await response.json();
-
-        console.log("Received response:", JSON.stringify(response));
-
-        if (isMounted) {
-          setTodos(data);
-          setCompletedCount(
-            data.filter((todo: Todo) => todo.status === "completed").length,
-          );
-          setTotalCount(data.length);
-        }
-      } catch (error) {
-        console.error("Failed to fetch todos:", error);
-      }
-    };
-
-    fetchTodos(); // Move this outside the try-catch
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
   // Get the most recent visits
   const recentVisits = visits
     .sort(
@@ -266,7 +233,9 @@ export default function Home() {
                     <td className="py-2 px-4 font-mono">
                       <span
                         className={
-                          visit.ip_address?.includes(":") ? "text-green-600" : ""
+                          visit.ip_address?.includes(":")
+                            ? "text-green-600"
+                            : ""
                         }
                       >
                         {maskIP(visit.ip_address)}
@@ -278,13 +247,6 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-
-          {/* Todo Section */}
-          <TodoTable
-            completedCount={completedCount}
-            todos={todos}
-            totalCount={totalCount}
-          />
         </div>
       </section>
     </>

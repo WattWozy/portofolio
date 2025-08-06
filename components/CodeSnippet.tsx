@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
 import { Tooltip } from "@heroui/tooltip";
+
 import { CopyIcon, CheckIcon } from "@/components/icons";
 
 interface CodeSnippetProps {
@@ -39,13 +40,17 @@ export const CodeSnippet = ({
   };
 
   const formatCode = (code: string, showNumbers: boolean) => {
-    const lines = code.split('\n');
+    const lines = code.split("\n");
+
     if (!showNumbers) return code;
-    
-    return lines.map((line, index) => {
-      const lineNumber = (index + 1).toString().padStart(3, ' ');
-      return `${lineNumber} ${line}`;
-    }).join('\n');
+
+    return lines
+      .map((line, index) => {
+        const lineNumber = (index + 1).toString().padStart(3, " ");
+
+        return `${lineNumber} ${line}`;
+      })
+      .join("\n");
   };
 
   return (
@@ -69,10 +74,10 @@ export const CodeSnippet = ({
               <Tooltip content={copied ? "Copied!" : "Copy code"}>
                 <Button
                   isIconOnly
+                  className="text-default-500 hover:text-default-700"
                   size="sm"
                   variant="light"
                   onPress={handleCopy}
-                  className="text-default-500 hover:text-default-700"
                 >
                   {copied ? (
                     <CheckIcon className="text-success" />
@@ -101,16 +106,12 @@ export const CodeSnippet = ({
             <Tooltip content={copied ? "Copied!" : "Copy code"}>
               <Button
                 isIconOnly
+                className="bg-default-100/80 backdrop-blur-sm"
                 size="sm"
                 variant="flat"
                 onPress={handleCopy}
-                className="bg-default-100/80 backdrop-blur-sm"
               >
-                {copied ? (
-                  <CheckIcon className="text-success" />
-                ) : (
-                  <CopyIcon />
-                )}
+                {copied ? <CheckIcon className="text-success" /> : <CopyIcon />}
               </Button>
             </Tooltip>
           </div>
@@ -127,10 +128,16 @@ interface InlineCodeProps {
   className?: string;
 }
 
-export const InlineCode = ({ code, language = "javascript", className = "" }: InlineCodeProps) => {
+export const InlineCode = ({
+  code,
+  language = "javascript",
+  className = "",
+}: InlineCodeProps) => {
   return (
-    <code className={`inline-block px-2 py-1 bg-default-100 dark:bg-default-800 text-default-800 dark:text-default-200 rounded text-sm font-mono ${className}`}>
+    <code
+      className={`inline-block px-2 py-1 bg-default-100 dark:bg-default-800 text-default-800 dark:text-default-200 rounded text-sm font-mono ${className}`}
+    >
       {code}
     </code>
   );
-}; 
+};
