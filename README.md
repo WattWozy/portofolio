@@ -53,4 +53,5 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
 
 ## TODO: 
-fix RLS supabase
+- Fix RLS supabase
+- New statistic overview over the IPs (data visualization in cool way) 
