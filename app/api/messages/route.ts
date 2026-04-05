@@ -18,7 +18,7 @@ export async function GET() {
     if (!response.ok) throw new Error("Failed to fetch message count");
     const data = await response.json();
 
-    return NextResponse.json({ success: true, count: data[0].count });
+    return NextResponse.json({ success: true, count: data?.[0]?.count ?? 0 });
   } catch (error) {
     console.error("Error fetching message count:", error);
 

@@ -51,7 +51,8 @@ export default function Home() {
     const fetchVisits = async () => {
       try {
         const response = await fetch("/api/visits");
-        const { data } = await response.json();
+        const json = await response.json();
+        const data: Visit[] = json.data ?? [];
 
         if (isMounted) {
           setVisits(data);
