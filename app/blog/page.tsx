@@ -6,24 +6,16 @@ import { title } from "@/components/primitives";
 export default function BlogPage() {
   const cards = [
     {
+      title: "A server for the first time: Artemis 2",
+      content: `Deploying a simple browser-native, multiplayer game for the first time.
+        ------------------------------------------ 
+        PENDING. ⏳
+      `,
+      link: "/blog",
+    },
+    {
       title: "Supabase: great data companion",
       content: `Some overview on Supabase's features: auth, rls, storage, vetors... etc.
-        ------------------------------------------ 
-        PENDING. ⏳
-      `,
-      link: "/blog",
-    },
-    {
-      title: "What running gave coding, and what coding gave running.",
-      content: `Mens sana in corpore sano. A quick reflection on their complementary nature.
-        ------------------------------------------ 
-        PENDING. ⏳
-      `,
-      link: "/blog",
-    },
-    {
-      title: "Building a second brain: a new purpose.",
-      content: `Having almost finished my web-portfolio, I bumped into this book.
         ------------------------------------------ 
         PENDING. ⏳
       `,

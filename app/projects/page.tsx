@@ -5,6 +5,18 @@ import { title } from "@/components/primitives";
 export default function DocsPage() {
   const cards = [
     {
+      title: "Publishing a symbolic calculator",
+      content:
+        "Publishing my second hobby project: a symbolic calculator. (Soon to arrive)",
+      link: "https://example.com",
+    },
+    {
+      title: "Publishing a js multiplayer game",
+      content:
+        "Bought a domain, got a 30 day trial at railway, and pushed to main once more to see the project come alive. (Soon to arrive)",
+      link: "https://example.com",
+    },
+    {
       title: "Building an iOS app from scratch",
       content:
         "Simple, lovable, and complete iOS app, aiming to help users track their private economy. (Soon to arrive)",
@@ -35,7 +47,7 @@ export default function DocsPage() {
       link: "https://example.com",
     },
     {
-      title: "Nextjs OCR project from scratch",
+      title: "Nextjs OCR project from scratch for an Energy Pricing Business",
       content:
         "Project built in React, Next.js, Python processing engine, and an Appwrite backend.",
       link: "https://example.com",

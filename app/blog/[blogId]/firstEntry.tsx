@@ -181,3 +181,63 @@ And here’s a fun thought: if you ever hit one of these walls, take a moment to
 `,
   ],
 };
+
+export const fifthEntry = {
+  id: "fifthEntry",
+  title: "Code Obfuscation: meaning, techniques and tools",
+  timestamp: "2025-03-27T10:30:00Z",
+  headers: [
+    "Where it all started",
+    "Scraping data",
+    "Countermeasures",
+    "Other measures",
+  ],
+  paragraphs: [
+    `A few years ago, while playing around with some Python scrapers, I realized how simple and straightforward it was to acquire interesting data. What was once just an exploratory activity has now become a serious battleground. Today, the same data — especially if it’s timely, structured, and relevant — is a real asset. Companies know this.
+
+Take a major finance website, for example. They pay for multiple API keys, maintain compliance with their data providers, and build a solid, valuable product by displaying real-time stock information. Then, they discover a handful of script kiddies scraping and reselling that same data for profit. It’s more than just a nuisance — it’s theft. And at some point, something has to be done.
+`,
+    `There are a couple of common ways to scrape data. The first is by targeting specific HTML element IDs or class names that contain the information you're after. The second — often a more elegant approach — involves discovering the API endpoint that populates the front-end. If you’re lucky, you’ll find an exposed endpoint returning nice, clean JSON, ready to be parsed and used.
+
+For a while, either method would get you far. But not anymore.
+`,
+    `To defend their data, companies have started locking down both the structure and the access points. HTML IDs and classes are now dynamic, changing with each request or at regular intervals. Endpoints are protected using session cookies, authentication headers, CSRF tokens, and more. Many sites even generate randomized identifiers for every element using JavaScript — a tactic powered by widely available open-source obfuscation tools.
+
+You don’t need to be a genius to implement this kind of defense; if you're serious about protecting your product, these tools are just a Google search away.
+`,
+    `Of course, client-side obfuscation is just the first line of defense. Additional layers include filtering based on IP addresses, deploying bot protection rules, using robots.txt to instruct crawlers, and monitoring suspicious traffic patterns.
+
+And here’s a fun thought: if you ever hit one of these walls, take a moment to feel proud. It usually means you’ve found something valuable — something someone else has put serious effort into protecting.
+`,
+  ],
+};
+
+export const sixthEntry = {
+  id: "sixthEntry",
+  title: "Code Obfuscation: meaning, techniques and tools",
+  timestamp: "2025-03-27T10:30:00Z",
+  headers: [
+    "Where it all started",
+    "Scraping data",
+    "Countermeasures",
+    "Other measures",
+  ],
+  paragraphs: [
+    `A few years ago, while playing around with some Python scrapers, I realized how simple and straightforward it was to acquire interesting data. What was once just an exploratory activity has now become a serious battleground. Today, the same data — especially if it’s timely, structured, and relevant — is a real asset. Companies know this.
+
+Take a major finance website, for example. They pay for multiple API keys, maintain compliance with their data providers, and build a solid, valuable product by displaying real-time stock information. Then, they discover a handful of script kiddies scraping and reselling that same data for profit. It’s more than just a nuisance — it’s theft. And at some point, something has to be done.
+`,
+    `There are a couple of common ways to scrape data. The first is by targeting specific HTML element IDs or class names that contain the information you're after. The second — often a more elegant approach — involves discovering the API endpoint that populates the front-end. If you’re lucky, you’ll find an exposed endpoint returning nice, clean JSON, ready to be parsed and used.
+
+For a while, either method would get you far. But not anymore.
+`,
+    `To defend their data, companies have started locking down both the structure and the access points. HTML IDs and classes are now dynamic, changing with each request or at regular intervals. Endpoints are protected using session cookies, authentication headers, CSRF tokens, and more. Many sites even generate randomized identifiers for every element using JavaScript — a tactic powered by widely available open-source obfuscation tools.
+
+You don’t need to be a genius to implement this kind of defense; if you're serious about protecting your product, these tools are just a Google search away.
+`,
+    `Of course, client-side obfuscation is just the first line of defense. Additional layers include filtering based on IP addresses, deploying bot protection rules, using robots.txt to instruct crawlers, and monitoring suspicious traffic patterns.
+
+And here’s a fun thought: if you ever hit one of these walls, take a moment to feel proud. It usually means you’ve found something valuable — something someone else has put serious effort into protecting.
+`,
+  ],
+};

@@ -77,7 +77,15 @@ export const Navbar = () => {
           <NavbarBrand as="li" className="gap-3 max-w-fit">
             <NextLink
               className="flex justify-start items-center gap-1"
-              href="/"
+              href="https://www.mynt.com/en"
+            >
+              <p className="font-bold text-inherit">Mynt</p>
+            </NextLink>
+          </NavbarBrand>
+          <NavbarBrand as="li" className="gap-3 max-w-fit">
+            <NextLink
+              className="flex justify-start items-center gap-1"
+              href="https://www.tieto.com/en/"
             >
               <p className="font-bold text-inherit">TietoEvry</p>
             </NextLink>

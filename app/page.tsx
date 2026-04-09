@@ -56,7 +56,7 @@ export default function Home() {
 
         if (isMounted) {
           setVisits(data);
-          setVisitCount(data.length);
+          setVisitCount(json.total ?? data.length);
         }
       } catch (error) {
         console.error("Failed to fetch visits:", error);
@@ -70,13 +70,8 @@ export default function Home() {
     };
   }, []);
 
-  // Get the most recent visits
-  const recentVisits = visits
-    .sort(
-      (a, b) =>
-        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
-    )
-    .slice(0, 5); // Show top 5 visits
+  // Already ordered by timestamp desc and limited to 5 by the API
+  const recentVisits = visits;
 
   // Function to mask IP address
   const maskIP = (ip: string | null | undefined) => {

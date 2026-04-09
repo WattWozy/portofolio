@@ -16,14 +16,18 @@ export async function POST(request: NextRequest) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        apikey: SUPABASE_SERVICE_ROLE_KEY,
+        Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
         Prefer: "return=representation",
       },
       body: JSON.stringify([{ ip_address: ip, region: "Unknown" }]),
     });
 
-    if (!response.ok) throw new Error("Failed to insert visit");
+    if (!response.ok) {
+      const errBody = await response.text();
+      console.error("Supabase error inserting visit:", response.status, errBody);
+      throw new Error(`Supabase ${response.status}: ${errBody}`);
+    }
     const data = await response.json();
 
     return NextResponse.json({ success: true, data });
@@ -37,24 +41,34 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/visits?order=timestamp.desc`,
+      `${SUPABASE_URL}/rest/v1/visits?order=timestamp.desc&limit=5`,
       {
         headers: {
           apikey: SUPABASE_SERVICE_ROLE_KEY,
           Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+          Prefer: "count=exact",
         },
       },
     );
 
-    if (!response.ok) throw new Error("Failed to fetch visits");
+    if (!response.ok) {
+      const errBody = await response.text();
+      console.error("Supabase error fetching visits:", response.status, errBody);
+      throw new Error(`Supabase ${response.status}: ${errBody}`);
+    }
+
     const data = await response.json();
 
-    return NextResponse.json({ success: true, data });
+    // Content-Range header: "0-4/1234" — the total is after the slash
+    const contentRange = response.headers.get("content-range");
+    const total = contentRange ? parseInt(contentRange.split("/")[1], 10) : data.length;
+
+    return NextResponse.json({ success: true, data, total });
   } catch (error) {
     console.error("Error fetching visits:", error);
 
     return NextResponse.json(
-      { error: "Failed to fetch visits" },
+      { error: "Failed to fetch visits", detail: String(error) },
       { status: 500 },
     );
   }
