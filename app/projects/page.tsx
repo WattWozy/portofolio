@@ -1,58 +1,46 @@
+import fs from "fs";
+import path from "path";
 import { Card, CardBody } from "@heroui/card";
-
+import Link from "next/link";
 import { title } from "@/components/primitives";
 
+const CONTENT_PATH = path.join(process.cwd(), "content/projects");
+
+function parseMarkdown(fileContent: string) {
+  const parts = fileContent.split("---");
+  if (parts.length < 3) return { data: {}, content: fileContent };
+  
+  const data: Record<string, string> = {};
+  parts[1].trim().split("\n").forEach((line) => {
+    const [key, ...valParts] = line.split(":");
+    if (key && valParts.length) {
+      data[key.trim()] = valParts.join(":").trim().replace(/^["'](.*)["']$/, "$1");
+    }
+  });
+
+  return { data, content: parts.slice(2).join("---").trim() };
+}
+
 export default function DocsPage() {
-  const cards = [
-    {
-      title: "Publishing a symbolic calculator",
-      content:
-        "Publishing my second hobby project: a symbolic calculator. (Soon to arrive)",
-      link: "https://example.com",
-    },
-    {
-      title: "Publishing a js multiplayer game",
-      content:
-        "Bought a domain, got a 30 day trial at railway, and pushed to main once more to see the project come alive. (Soon to arrive)",
-      link: "https://example.com",
-    },
-    {
-      title: "Building an iOS app from scratch",
-      content:
-        "Simple, lovable, and complete iOS app, aiming to help users track their private economy. (Soon to arrive)",
-      link: "https://example.com",
-    },
-    {
-      title: "LLM chatbot orchestration: models, scrapers and containers",
-      content:
-        "Scraping enormous websites, loading them into a vector database, and using LLMs to chat with the data. (Soon to arrive)",
-      link: "https://example.com",
-    },
-    {
-      title: "AWS-hosted portfolio: amplify, s3, and lambda",
-      content:
-        "The process of building the site you are currently on. (Soon to arrive)",
-      link: "/",
-    },
-    {
-      title: "Django Stock Market Analysis Application",
-      content:
-        "Python Django framework application for stock market analysis. (Soon to arrive)",
-      link: "https://example.com",
-    },
-    {
-      title: "Spring boot queuing system",
-      content:
-        "Spring Boot Java backend handling a simple ticketing/queuing system. React on the frontend. (Soon to arrive)",
-      link: "https://example.com",
-    },
-    {
-      title: "Nextjs OCR project from scratch for an Energy Pricing Business",
-      content:
-        "Project built in React, Next.js, Python processing engine, and an Appwrite backend.",
-      link: "https://example.com",
-    },
-  ];
+  const files = fs.existsSync(CONTENT_PATH) ? fs.readdirSync(CONTENT_PATH) : [];
+
+  const projects = files
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => {
+      const projectId = file.replace(/\.md$/, "");
+      const { data } = parseMarkdown(fs.readFileSync(path.join(CONTENT_PATH, file), "utf8"));
+
+      return {
+        id: projectId,
+        title: data.title || projectId,
+        summary: data.summary || "Project breakdown coming soon.",
+        tech: data.tech || "Full-stack",
+        status: data.status || "PUBLISHED. ✅",
+        timestamp: data.timestamp || new Date().toISOString(),
+        link: `/projects/${projectId}`,
+      };
+    })
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
   return (
     <div>
@@ -63,13 +51,26 @@ export default function DocsPage() {
       <br />
       <br />
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 w-full h-full">
-        {cards.map((card, index) => (
-          <Card key={index} className="max-w-md w-full">
-            <CardBody>
-              <h2 className="text-xl font-bold">{card.title}</h2>
-              <p className="mt-2">{card.content}</p>
-            </CardBody>
-          </Card>
+        {projects.map((project) => (
+          <Link key={project.id} className="w-full max-w-md" href={project.link}>
+            <Card className="cursor-pointer hover:shadow-lg transition max-w-md w-full">
+              <CardBody style={{ whiteSpace: "pre-line" }}>
+                <div className="flex justify-between items-center mb-2">
+                  <h2 className="text-xl font-bold">{project.title}</h2>
+                  {project.tech && (
+                    <span className="text-xs bg-violet-500/10 text-violet-400 px-2 py-1 rounded">
+                      {project.tech}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-2 text-gray-600">
+                  {project.summary}
+                  {"\n\n"}------------------------------------------{"\n"}
+                  {project.status}
+                </p>
+              </CardBody>
+            </Card>
+          </Link>
         ))}
       </section>
     </div>
