@@ -6,14 +6,17 @@ export function parseMarkdown(fileContent: string): {
   content: string;
 } {
   const parts = fileContent.split("---");
+
   if (parts.length < 3) return { data: {}, content: fileContent };
 
   const data: Record<string, string> = {};
+
   parts[1]
     .trim()
     .split("\n")
     .forEach((line) => {
       const [key, ...valParts] = line.split(":");
+
       if (key && valParts.length) {
         data[key.trim()] = valParts
           .join(":")
@@ -27,7 +30,9 @@ export function parseMarkdown(fileContent: string): {
 
 export function readMarkdownDir(dir: string) {
   const full = path.join(process.cwd(), dir);
+
   if (!fs.existsSync(full)) return [];
+
   return fs
     .readdirSync(full)
     .filter((f) => f.endsWith(".md"))

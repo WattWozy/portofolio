@@ -3,13 +3,17 @@ import NextLink from "next/link";
 import { getProjects, isPublished } from "@/lib/projects";
 
 export function FeaturedProjects({ limit = 3 }: { limit?: number }) {
-  const posts = getProjects().filter(isPublished).slice(0, limit);
-  if (posts.length === 0) return null;
+  const projects = getProjects().filter(isPublished).slice(0, limit);
+
+  if (projects.length === 0) return null;
 
   return (
     <section className="mx-auto max-w-3xl py-16">
+      <h2 className="text-2xl font-bold tracking-tight mb-8">
+        Featured Projects
+      </h2>
       <ul className="space-y-6">
-        {posts.map((p) => (
+        {projects.map((p) => (
           <li key={p.id}>
             <NextLink className="group block" href={p.link}>
               <time className="text-xs text-default-400">

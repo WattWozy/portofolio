@@ -1,7 +1,8 @@
-import fs from "fs";
 import path from "path";
+
 import { Card, CardBody } from "@heroui/card";
 import Link from "next/link";
+
 import { title } from "@/components/primitives";
 import { getPosts } from "@/lib/blog";
 

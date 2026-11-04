@@ -1,9 +1,12 @@
 import fs from "fs";
 import path from "path";
+
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
 import { title } from "@/components/primitives";
 
 const CONTENT_PATH = path.join(process.cwd(), "content/projects");
@@ -82,10 +85,10 @@ export default async function Page({
       <div className="flex gap-4 mb-8 text-sm">
         {data.github && (
           <a
-            href={data.github}
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-violet-400 hover:underline"
+            href={data.github}
+            rel="noopener noreferrer"
+            target="_blank"
           >
             GitHub Repository →
           </a>
@@ -93,10 +96,10 @@ export default async function Page({
 
         {data.demo && (
           <a
-            href={data.demo}
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-cyan-400 hover:underline"
+            href={data.demo}
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Live Demo →
           </a>
@@ -146,9 +149,9 @@ export default async function Page({
 
                 return (
                   <SyntaxHighlighter
-                    style={oneDark as any}
-                    language={match[1]}
                     PreTag="div"
+                    language={match[1]}
+                    style={oneDark as any}
                     {...rest}
                   >
                     {String(children).replace(/\n$/, "")}
@@ -163,6 +166,7 @@ export default async function Page({
               );
             },
           }}
+          remarkPlugins={[remarkGfm]}
         >
           {content}
         </ReactMarkdown>

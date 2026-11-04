@@ -1,21 +1,26 @@
 import fs from "fs";
 import path from "path";
+
 import { Card, CardBody } from "@heroui/card";
 import Link from "next/link";
+
 import { title } from "@/components/primitives";
 
 const CONTENT_PATH = path.join(process.cwd(), "content/projects");
 
 function parseMarkdown(fileContent: string) {
   const parts = fileContent.split("---");
+
   if (parts.length < 3) return { data: {}, content: fileContent };
 
   const data: Record<string, string> = {};
+
   parts[1]
     .trim()
     .split("\n")
     .forEach((line) => {
       const [key, ...valParts] = line.split(":");
+
       if (key && valParts.length) {
         data[key.trim()] = valParts
           .join(":")

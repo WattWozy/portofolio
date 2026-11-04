@@ -48,10 +48,10 @@ export function Hero() {
         <span className={title({ size: "lg", fullWidth: false })}>
           <Typewriter
             cursor
+            loop
             cursorStyle="_"
             delaySpeed={1500}
             deleteSpeed={50}
-            loop
             typeSpeed={120}
             words={GREETINGS}
           />
@@ -95,7 +95,9 @@ export function Hero() {
       </div>
 
       <p className="max-w-md text-center text-sm italic text-default-400">
-        &ldquo;Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better&rdquo; &mdash; Edsger Dijkstra
+        &ldquo;Simplicity is a great virtue but it requires hard work to achieve
+        it and education to appreciate it. And to make matters worse: complexity
+        sells better&rdquo; &mdash; Edsger Dijkstra
       </p>
     </section>
   );

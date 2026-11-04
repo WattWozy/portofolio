@@ -1,9 +1,12 @@
 import fs from "fs";
 import path from "path";
+
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
 import { title } from "@/components/primitives";
 
 const CONTENT_PATH = path.join(process.cwd(), "content/blog");
@@ -80,7 +83,9 @@ export default async function Page({
 
       {data.timestamp && (
         <div className="flex gap-4 mb-8 text-sm text-gray-500 font-mono">
-          <span>Published on: {new Date(data.timestamp).toLocaleDateString()}</span>
+          <span>
+            Published on: {new Date(data.timestamp).toLocaleDateString()}
+          </span>
         </div>
       )}
 
@@ -119,10 +124,7 @@ export default async function Page({
             ),
 
             ul: ({ node, ...props }) => (
-              <ul
-                className="list-disc list-inside mb-4 space-y-1"
-                {...props}
-              />
+              <ul className="list-disc list-inside mb-4 space-y-1" {...props} />
             ),
 
             ol: ({ node, ...props }) => (
@@ -156,9 +158,9 @@ export default async function Page({
 
                 return (
                   <SyntaxHighlighter
-                    style={oneDark as any}
-                    language={match[1]}
                     PreTag="div"
+                    language={match[1]}
+                    style={oneDark as any}
                     {...rest}
                   >
                     {String(children).replace(/\n$/, "")}
@@ -176,6 +178,7 @@ export default async function Page({
               );
             },
           }}
+          remarkPlugins={[remarkGfm]}
         >
           {content}
         </ReactMarkdown>

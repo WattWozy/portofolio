@@ -10,14 +10,15 @@ export type Project = {
 };
 
 export function getProjects(): Project[] {
-  return readMarkdownDir("content/blog")
+  return readMarkdownDir("content/projects")
     .map(({ id, data }) => ({
       id,
       title: data.title || id,
       summary: data.summary || "Summary coming soon.",
       timestamp: data.timestamp || new Date().toISOString(),
       status: data.status || "PUBLISHED. ✅",
-      link: `/blog/${id}`,
+      // 2. Point to your projects route instead of /blog/
+      link: `/projects/${id}`,
     }))
     .sort(
       (a, b) =>

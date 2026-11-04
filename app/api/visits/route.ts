@@ -38,14 +38,17 @@ export async function POST(request: NextRequest) {
         response.status,
         await response.text(),
       );
+
       return NextResponse.json(
         { error: "Failed to log visit" },
         { status: 502 },
       );
     }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error logging visit:", error);
+
     return NextResponse.json({ error: "Failed to log visit" }, { status: 500 });
   }
 }
@@ -63,6 +66,7 @@ export async function GET() {
         response.status,
         await response.text(),
       );
+
       return NextResponse.json(
         { error: "Failed to fetch visits" },
         { status: 502 },
@@ -82,6 +86,7 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Error fetching visits:", error);
+
     return NextResponse.json(
       { error: "Failed to fetch visits" },
       { status: 500 },
