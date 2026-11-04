@@ -7,7 +7,6 @@ import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { title } from "@/components/primitives";
 
 const CONTENT_PATH = path.join(process.cwd(), "content/blog");
-const syntaxTheme = oneDark as any;
 
 function parseMarkdown(fileContent: string) {
   const parts = fileContent.split("---");
@@ -18,16 +17,19 @@ function parseMarkdown(fileContent: string) {
 
   const data: Record<string, string> = {};
 
-  parts[1].trim().split("\n").forEach((line) => {
-    const [key, ...valParts] = line.split(":");
+  parts[1]
+    .trim()
+    .split("\n")
+    .forEach((line) => {
+      const [key, ...valParts] = line.split(":");
 
-    if (key && valParts.length) {
-      data[key.trim()] = valParts
-        .join(":")
-        .trim()
-        .replace(/^["'](.*)["']$/, "$1");
-    }
-  });
+      if (key && valParts.length) {
+        data[key.trim()] = valParts
+          .join(":")
+          .trim()
+          .replace(/^["'](.*)["']$/, "$1");
+      }
+    });
 
   return {
     data,
@@ -64,9 +66,7 @@ export default async function Page({
     notFound();
   }
 
-  const { data, content } = parseMarkdown(
-    fs.readFileSync(filePath, "utf8")
-  );
+  const { data, content } = parseMarkdown(fs.readFileSync(filePath, "utf8"));
 
   return (
     <article className="p-6 max-w-4xl mx-auto text-left">
@@ -74,10 +74,14 @@ export default async function Page({
         {data.title || blogId}
       </h1>
 
+      <br />
+      <br />
+      <br />
+
       {data.timestamp && (
-        <p className="text-xs font-mono text-gray-500 mt-4 mb-8">
-          Published on: {new Date(data.timestamp).toLocaleDateString()}
-        </p>
+        <div className="flex gap-4 mb-8 text-sm text-gray-500 font-mono">
+          <span>Published on: {new Date(data.timestamp).toLocaleDateString()}</span>
+        </div>
       )}
 
       <div className="prose dark:prose-invert max-w-none leading-relaxed text-justify">
@@ -86,54 +90,54 @@ export default async function Page({
             h1: ({ node, children, ...props }) => (
               <h1
                 className="text-3xl font-bold mt-8 mb-4 text-violet-500"
-                {...props}>
-                  {children}
+                {...props}
+              >
+                {children}
               </h1>
-              
             ),
 
             h2: ({ node, children, ...props }) => (
               <h2
-                className="text-2xl font-semibold mt-6 mb-3 text-cyan-400"
-                {...props}>
-                  {children}
+                className="text-2xl font-semibold mt-6 mb-3 text-cyan-500"
+                {...props}
+              >
+                {children}
               </h2>
-              
             ),
 
             h3: ({ node, children, ...props }) => (
               <h3
                 className="text-xl font-medium mt-4 mb-2 text-violet-400"
-                {...props}>
-                  {children}
+                {...props}
+              >
+                {children}
               </h3>
-              
             ),
 
             p: ({ node, ...props }) => (
-              <p className="mb-4 leading-relaxed text-gray-300" {...props} />
+              <p className="mb-4 leading-relaxed" {...props} />
             ),
 
             ul: ({ node, ...props }) => (
               <ul
-                className="list-disc list-inside mb-4 space-y-1 text-gray-300"
+                className="list-disc list-inside mb-4 space-y-1"
                 {...props}
               />
             ),
 
             ol: ({ node, ...props }) => (
               <ol
-                className="list-decimal list-inside mb-4 space-y-1 text-gray-300"
+                className="list-decimal list-inside mb-4 space-y-1"
                 {...props}
               />
             ),
 
             li: ({ node, ...props }) => (
-              <li className="marker:text-cyan-400" {...props} />
+              <li className="marker:text-cyan-500" {...props} />
             ),
 
             strong: ({ node, ...props }) => (
-              <strong className="font-semibold text-white" {...props} />
+              <strong className="font-semibold" {...props} />
             ),
 
             img: ({ node, ...props }) => (
@@ -148,12 +152,11 @@ export default async function Page({
               const match = /language-(\w+)/.exec(className || "");
 
               if (match) {
-                // Avoid forwarding HTML-specific props such as ref.
                 const { ref, ...rest } = props;
 
                 return (
                   <SyntaxHighlighter
-                    style={syntaxTheme}
+                    style={oneDark as any}
                     language={match[1]}
                     PreTag="div"
                     {...rest}

@@ -17,16 +17,19 @@ function parseMarkdown(fileContent: string) {
 
   const data: Record<string, string> = {};
 
-  parts[1].trim().split("\n").forEach((line) => {
-    const [key, ...valParts] = line.split(":");
+  parts[1]
+    .trim()
+    .split("\n")
+    .forEach((line) => {
+      const [key, ...valParts] = line.split(":");
 
-    if (key && valParts.length) {
-      data[key.trim()] = valParts
-        .join(":")
-        .trim()
-        .replace(/^["'](.*)["']$/, "$1");
-    }
-  });
+      if (key && valParts.length) {
+        data[key.trim()] = valParts
+          .join(":")
+          .trim()
+          .replace(/^["'](.*)["']$/, "$1");
+      }
+    });
 
   return {
     data,
@@ -63,9 +66,7 @@ export default async function Page({
     notFound();
   }
 
-  const { data, content } = parseMarkdown(
-    fs.readFileSync(filePath, "utf8")
-  );
+  const { data, content } = parseMarkdown(fs.readFileSync(filePath, "utf8"));
 
   return (
     <article className="p-6 max-w-4xl mx-auto text-left">
@@ -106,18 +107,21 @@ export default async function Page({
         <ReactMarkdown
           components={{
             h1: ({ node, children, ...props }) => (
-                <h1 className="text-3xl font-bold mt-8 mb-4 text-violet-500" {...props}>
-                    {children}
-                </h1>
+              <h1
+                className="text-3xl font-bold mt-8 mb-4 text-violet-500"
+                {...props}
+              >
+                {children}
+              </h1>
             ),
 
             h2: ({ node, children, ...props }) => (
               <h2
                 className="text-2xl font-semibold mt-6 mb-3 text-cyan-500"
-                {...props}>
-                    {children}
-            </h2>
-              
+                {...props}
+              >
+                {children}
+              </h2>
             ),
 
             p: ({ node, ...props }) => (

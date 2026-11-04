@@ -1,4 +1,3 @@
-
 ---
 title: "REST API Development"
 summary: "A breakdown of HTTP methods, core concepts, status codes, and best practices."
@@ -9,9 +8,11 @@ status: "PUBLISHED. ✅"
 # REST API Development
 
 ## Overview
+
 A REST API enables communication between applications over HTTP using standardized methods and resource-based endpoints.
 
 ## Core Concepts
+
 - **GET** – Retrieve resources.
 - **POST** – Create resources.
 - **PUT** – Replace existing resources.
@@ -19,11 +20,13 @@ A REST API enables communication between applications over HTTP using standardiz
 - **DELETE** – Remove resources.
 
 ## Example
+
 ```http
 GET /api/users/123
 ```
 
 Response:
+
 ```json
 {
   "id": 123,
@@ -33,6 +36,7 @@ Response:
 ```
 
 ## Best Practices
+
 - Use meaningful resource names.
 - Return appropriate HTTP status codes.
 - Validate incoming requests.
@@ -40,4 +44,5 @@ Response:
 - Document endpoints using OpenAPI/Swagger.
 
 ## Technologies
+
 Java, Spring Boot, PostgreSQL, Swagger.

@@ -1,4 +1,3 @@
-
 ---
 title: "Docker files"
 summary: "A breakdown of docker core concepts, containers, and best practices."
@@ -9,9 +8,11 @@ status: "PUBLISHED. ✅"
 # Docker & Containerization
 
 ## Overview
+
 Docker is a platform for packaging applications and their dependencies into portable containers. Containers provide consistent environments across development, testing, and production.
 
 ## Core Concepts
+
 - **Image** – Blueprint used to create containers.
 - **Container** – Running instance of an image.
 - **Dockerfile** – Instructions for building an image.
@@ -19,6 +20,7 @@ Docker is a platform for packaging applications and their dependencies into port
 - **Docker Compose** – Tool for managing multi-container applications.
 
 ## Example Dockerfile
+
 ```dockerfile
 FROM eclipse-temurin:21-jdk
 
@@ -32,6 +34,7 @@ CMD ["java", "-jar", "app.jar"]
 ```
 
 ## Common Commands
+
 ```bash
 docker build -t my-app .
 docker run -p 8080:8080 my-app
@@ -41,6 +44,7 @@ docker compose up -d
 ```
 
 ## Best Practices
+
 - Use lightweight base images.
 - Avoid running containers as root.
 - Keep images small.
@@ -48,4 +52,5 @@ docker compose up -d
 - Never store secrets inside images.
 
 ## Technologies
+
 Docker, Docker Compose, Kubernetes, Java.

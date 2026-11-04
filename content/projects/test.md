@@ -1,4 +1,3 @@
-
 ---
 title: "Smart note ai"
 summary: "A simple AI note taking app"
@@ -41,14 +40,14 @@ smartnote-ai/
 
 ## Technology Stack
 
-| Component | Technology |
-|---|---|
-| Backend | Python, FastAPI |
-| Frontend | React, TypeScript |
-| AI Integration | OpenAI API |
-| Database | PostgreSQL |
-| Vector Search | pgvector |
-| Infrastructure | Docker |
+| Component      | Technology        |
+| -------------- | ----------------- |
+| Backend        | Python, FastAPI   |
+| Frontend       | React, TypeScript |
+| AI Integration | OpenAI API        |
+| Database       | PostgreSQL        |
+| Vector Search  | pgvector          |
+| Infrastructure | Docker            |
 
 ## Getting Started
 

@@ -15,7 +15,9 @@ export default function PricingPage() {
       <Card className="py-4">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <p className="text-small uppercase font-bold">
-            {"If you doubt whether to push your code or not, then it is not tested enough."}
+            {
+              "If you doubt whether to push your code or not, then it is not tested enough."
+            }
           </p>
           <small className="text-default-500">M.Wideberg</small>
         </CardHeader>

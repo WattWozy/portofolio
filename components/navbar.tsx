@@ -74,22 +74,6 @@ export const Navbar = () => {
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-          <NavbarBrand as="li" className="gap-3 max-w-fit">
-            <NextLink
-              className="flex justify-start items-center gap-1"
-              href="https://www.mynt.com/en"
-            >
-              <p className="font-bold text-inherit">Mynt</p>
-            </NextLink>
-          </NavbarBrand>
-          <NavbarBrand as="li" className="gap-3 max-w-fit">
-            <NextLink
-              className="flex justify-start items-center gap-1"
-              href="https://www.tieto.com/en/"
-            >
-              <p className="font-bold text-inherit">TietoEvry</p>
-            </NextLink>
-          </NavbarBrand>
           <ul className="hidden lg:flex gap-4 justify-start ml-2">
             {siteConfig.navItems.map((item) => (
               <NavbarItem key={item.href}>
@@ -106,6 +90,22 @@ export const Navbar = () => {
               </NavbarItem>
             ))}
           </ul>
+          <NavbarBrand as="li" className="gap-3 max-w-fit">
+            <NextLink
+              className="flex justify-start items-center gap-1"
+              href="https://www.mynt.com/en"
+            >
+              <p className="font-bold text-inherit">(Mynt)</p>
+            </NextLink>
+          </NavbarBrand>
+          <NavbarBrand as="li" className="gap-3 max-w-fit">
+            <NextLink
+              className="flex justify-start items-center gap-1"
+              href="https://www.tieto.com/en/"
+            >
+              <p className="font-bold text-inherit">(TietoEvry)</p>
+            </NextLink>
+          </NavbarBrand>
         </NavbarContent>
 
         <NavbarContent
