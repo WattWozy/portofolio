@@ -37,5 +37,8 @@ next-env.d.ts
 #todo list
 todo.md
 
+#swap files
+.swp
+
 # amplify
 .amplify

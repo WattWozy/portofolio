@@ -1,92 +1,61 @@
+import fs from "fs";
+import path from "path";
 import { Card, CardBody } from "@heroui/card";
 import Link from "next/link";
-
 import { title } from "@/components/primitives";
 
+const CONTENT_PATH = path.join(process.cwd(), "content/blog");
+
+function parseMarkdown(fileContent: string) {
+  const parts = fileContent.split("---");
+  if (parts.length < 3) return { data: {}, content: fileContent };
+  
+  const data: Record<string, string> = {};
+  parts[1].trim().split("\n").forEach((line) => {
+    const [key, ...valParts] = line.split(":");
+    if (key && valParts.length) {
+      data[key.trim()] = valParts.join(":").trim().replace(/^["'](.*)["']$/, "$1");
+    }
+  });
+
+  return { data, content: parts.slice(2).join("---").trim() };
+}
+
 export default function BlogPage() {
-  const cards = [
-    {
-      title: "A server for the first time: Artemis 2",
-      content: `Deploying a simple browser-native, multiplayer game for the first time.
-        ------------------------------------------ 
-        PENDING. ⏳
-      `,
-      link: "/blog",
-    },
-    {
-      title: "Supabase: great data companion",
-      content: `Some overview on Supabase's features: auth, rls, storage, vetors... etc.
-        ------------------------------------------ 
-        PENDING. ⏳
-      `,
-      link: "/blog",
-    },
-    {
-      title: "GIT: the information manager from hell",
-      content: `GIT, its history, and some basic concepts.
-      ------------------------------------------
-      PENDING. ⏳
-      `,
-      link: "/blog",
-    },
-    {
-      title:
-        "Teaching a computer to learn: A summary of Nielsen's book about Machine Learning and Deep Neural Networks.",
-      content: `Summary of this great read.
-      ------------------------------------------
-      PENDING. ⏳
-      `,
-      link: "/blog",
-    },
-    {
-      title: "Code Obfuscation: meaning, techniques and tools",
-      content: `Obfuscation's goals and mechanisms. A brief introduction.
-      ------------------------------------------
-      PUBLISHED. ✅
-      `,
-      link: "/blog/fourthEntry",
-    },
-    {
-      title: "A brief introduction to DEVOPS.",
-      content: `From commit and pushing to the right branches, through code review and deployment.
-        ------------------------------------------
-        PUBLISED. ✅
-        `,
-      link: "/blog/thirdEntry",
-    },
-    {
-      title:
-        "Building a Langchain4j chatbot agent for banking customer service.",
-      content: `Project done internally together with 15 other co-workers. I describe the general architecture of the service, the technologies, and the teamwork experience.
-        ------------------------------------------
-        PUBLISED. ✅`,
-      link: "/blog/secondEntry",
-    },
-    {
-      title: "Working experience first year: A brief summary.",
-      content: `In this blog post, I cover the first impressions of starting an amazing journey at a huge fintech company.
-        ------------------------------------------
-        PUBLISED. ✅
-        `,
-      link: "/blog/firstEntry",
-    },
-  ];
+  const files = fs.existsSync(CONTENT_PATH) ? fs.readdirSync(CONTENT_PATH) : [];
+
+  const posts = files
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => {
+      const blogId = file.replace(/\.md$/, "");
+      const { data } = parseMarkdown(fs.readFileSync(path.join(CONTENT_PATH, file), "utf8"));
+
+      return {
+        id: blogId,
+        title: data.title || blogId,
+        summary: data.summary || "Summary coming soon.",
+        timestamp: data.timestamp || new Date().toISOString(),
+        status: data.status || "PUBLISHED. ✅",
+        link: `/blog/${blogId}`,
+      };
+    })
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
   return (
     <div>
-      <h1 className={title({ color: "cyan", size: "lg", fullWidth: true })}>
-        Blog:{" "}
-      </h1>
-      <br />
-      <br />
-      <br />
-      <div className="flex flex-col items-center justify-center gap-6 py-10">
-        {cards.map((card, index) => (
-          <Link key={index} className="w-full max-w-md" href={card.link}>
+      <h1 className={title({ color: "cyan", size: "lg", fullWidth: true })}>Blog: </h1>
+      <br /><br /><br />
+      <div className="flex flex-col items-center justify-center gap-6 py-10 w-full">
+        {posts.map((post) => (
+          <Link key={post.id} className="w-full max-w-md" href={post.link}>
             <Card className="cursor-pointer hover:shadow-lg transition">
               <CardBody style={{ whiteSpace: "pre-line" }}>
-                <h2 className="text-xl font-bold">{card.title}</h2>
-                <p className="mt-2 text-gray-600">{card.content}</p>
+                <h2 className="text-xl font-bold">{post.title}</h2>
+                <p className="mt-2 text-gray-600">
+                  {post.summary}
+                  {"\n\n"}------------------------------------------{"\n"}
+                  {post.status}
+                </p>
               </CardBody>
             </Card>
           </Link>
