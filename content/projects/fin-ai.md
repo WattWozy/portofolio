@@ -13,7 +13,57 @@ This was my first role as a CTO, at a startup that never flew. I am putting it o
 
 Over several months I developed an iOS app that connected to the **Tink API** to retrieve users' financial data, and deployed the backend on **AWS** so an instance was running around the clock. The idea was a personal finance copilot: you ask about your money in plain language, and it helps you understand it.
 
-![The app](/img/fin-ai/app.png)
+![Image](/blog/finai/finai.gif)
+
+## Evolution and architecture of the system
+
+I wanted to approach the project incrementally. Rather than designing an elaborate architecture from day one, I started with the smallest working pieces and gradually introduced complexity when it became necessary.
+
+One of my initial decisions was not to rely directly on commercial AI APIs such as OpenAI or Anthropic. I wanted to understand what actually happened behind the abstraction: how models consume context, how tools are exposed to them, and how an application can orchestrate those interactions.
+
+This led me down the rabbit hole of local models, inference servers and tool calling. I experimented with running models locally and exposing functionality through a backend that could retrieve financial information, interpret requests and return structured results.
+
+The iOS application was divided into smaller modules, keeping responsibilities relatively independent. The backend acted as the bridge between the financial data provider and the AI functionality, rather than allowing the mobile application to communicate with every external service directly.
+
+Looking back, the most valuable part was learning how to evolve an architecture without overengineering it. I didn't need a sophisticated distributed system. I needed something I could understand, test and improve.
+
+## Developing an iOS app
+
+I chose iOS because I wanted to build something people could actually use in their everyday lives. Personal finances are sensitive, and the application needed to feel trustworthy. A native mobile experience also gave me access to the platform's components and conventions, allowing me to focus on the product rather than reinventing basic interaction patterns.
+
+Developing for iOS was a learning experience in itself. I had to understand how to divide functionality into packages, work with native components and navigate Apple's development ecosystem. I also discovered that getting an application ready for the App Store involves considerably more friction than simply getting it running on a device.
+
+AI played a significant role in speeding up development. However, I deliberately worked without an autonomous coding agent. I wanted assistance with implementation, not an abstraction that would make the engineering decisions for me. I still had to read the suggestions, understand the generated code and decide whether it belonged in the project.
+
+That distinction mattered to me: using AI to accelerate learning is very different from outsourcing understanding.
+
+## Shooting with Postman
+
+One of the toughest challenges was getting all the moving pieces to communicate. In particular, wiring up the routing between the backend running inside a container and the Xcode simulator required more troubleshooting than I initially expected.
+
+I approached this incrementally, using Postman to isolate requests and validate each integration before moving further down the stack. Instead of debugging the entire application at once, I could verify whether the backend received the request, whether the external service returned the expected information and whether the AI layer could process it.
+
+The most rewarding moment was seeing the tool-calling workflow actually work. The model received structured financial information, interpreted the available data and produced a useful natural-language response.
+
+It was a small milestone, but an important one. Suddenly, the idea was no longer just a collection of APIs and components. It was something that could answer questions about real financial information.
+
+![Image](/blog/finai/finai-two.png)
+
+
+## Deploying on AWS using S3 and EC2
+
+Eventually, I wanted the application to be accessible outside my development environment. That meant moving from local infrastructure to something that could run continuously.
+
+I created an AWS account, explored the available services and had to learn a completely different set of concerns: IAM permissions, networking, deployment, resource management and, perhaps most importantly, budgeting.
+
+I opted for EC2 because I wanted to keep things relatively straightforward. Having control over a virtual machine made it easier to understand what was running, how the services communicated and where problems originated. S3 was another piece of the infrastructure I had to become familiar with.
+
+AWS introduced a new dimension to the project. It was no longer enough for something to work on my laptop. It needed to remain available, expose the right endpoints and behave consistently outside my development environment.
+
+One particularly rewarding milestone was having my partner test the application remotely. Seeing someone else interact with something I had built, running on infrastructure I had deployed myself, made all the previous troubleshooting worthwhile.
+
+![Image](/blog/finai/finai-four.png)
+
 
 ## Where it stopped
 

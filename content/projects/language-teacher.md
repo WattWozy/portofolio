@@ -16,7 +16,12 @@ The idea was relatively simple: develop a local-AI-powered web application that 
 
 **STT → AI → TTS**
 
+![Image](/blog/duolingo/duoling-one.png)
+
 I wanted to be able to speak naturally, make mistakes, receive corrections, and continue the conversation without feeling like I was completing a predefined exercise.
+I also adapted the design of the app so that i could save words and translate sentences on the fly. I discovered lightweight NLP libraries that took the project quite far without the need of more AI loops and processing. 
+
+![Image](/blog/duolingo/duoling-three.png)
 
 ## Going local
 
@@ -34,9 +39,10 @@ Of course, the limitations became apparent quite quickly. Smaller models can str
 
 Still, the experience was surprisingly good.
 
-## More than just Spanish
+## More than just one language
 
-What started as a personal experiment eventually grew into something more ambitious. I expanded the application to support Italian, Ukrainian, Polish, and Norwegian.
+What started as a personal experiment eventually grew into something more ambitious. I expanded the application to support Italian, Ukrainian, and Norwegian. The goal 
+was to test including more languages to test the LLMs capacity to answer, and to see how the performance was affected when adding more tts and stt models.
 
 This introduced another interesting dimension: language-specific behavior. It wasn't enough to simply change the language of the generated response. The entire interaction needed to make sense within the target language.
 
@@ -47,6 +53,8 @@ I wanted the application to become a flexible learning environment rather than a
 One detail I was particularly proud of was packaging the application's entry point into two simple scripts: one for Bash and another for PowerShell.
 
 The goal was to make the entire environment as painless as possible to start. A single command would take care of setting up and launching both the web client and the backend infrastructure.
+
+![Image](/blog/duolingo/duoling-two.png)
 
 The backend ran inside Docker containers, hosting the models responsible for speech-to-text, text-to-speech, and language generation.
 
